@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/46/Wikisource-ico-48px.png">
+    <link rel="stylesheet"
+          href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap.min.css">
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#statsTable').DataTable({
+                paging: false,
+                searching: false,
+                lengthChange: false
+            });
+        });
+    </script>
+    <style type="text/css">
+        .quality4 {
+            background: #90ff90;
+        }
+
+        .quality3 {
+            background: #ffe867;
+        }
+
+        .quality2 {
+            background: #b0b0ff;
+        }
+
+        .quality1 {
+            background: #ffa0a0;
+        }
+
+        .quality0 {
+            background: #dddddd;
+        }
+
+        .withscans {
+            background: #c0c0ff;
+        }
+
+        .naked {
+            background: #ffa0a0;
+        }
+
+        .disamb {
+            background: #dddddd;
+        }
+        
+    </style>
+</head>
+<body class="light-blue-skin">
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Indic Wikisource Statistics</h1>
+        <p>A tool for Indic Community</p>
+    </div>
+    <br>
+    <p> Statistics on {{ data["timestamp"] }} </p>
+    <table id="statsTable" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th colspan="7" style="text-align:center">Page namespace</th>
+            <th colspan="3" style="text-align:center">Main namespace</th>
+        </tr>
+        <tr>
+            <th class="th-sm">Language
+            </th>
+            <th class="th-sm">All pages
+            </th>
+            <th class="th-sm quality0">Without text
+            </th>
+            <th class="th-sm quality1">Not proofread
+            </th>
+            <th class="th-sm quality2">Problematic
+            </th>
+            <th class="th-sm quality3">Proofread
+            </th>
+            <th class="th-sm quality4">Validated
+            </th>
+            <th class="th-sm">All pages
+            </th>
+            <th class="th-sm withscans">with scans
+            </th>
+            <th class="th-sm naked">w/o scans
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for dbname in data %}
+            {% if 'timestamp' not in dbname %}
+                <tr>
+                    <td>{{ dbname }}</td>
+                    <td>{{ data[dbname]["Num_of_pages"] }}</td>
+                    <td>{{ data[dbname]["Without_text"] }}</td>
+                    <td>{{ data[dbname]["Not_proofread"] }}</td>
+                    <td>{{ data[dbname]["Problematic"] }}</td>
+                    <td>{{ data[dbname]["Proofread"] }}</td>
+                    <td>{{ data[dbname]["Validated"] }}</td>
+                    <td>{{ data[dbname]["Main_Pages"] }}</td>
+                    <td>{{ data[dbname]["Main_WithScan"] }}</td>
+                    <td>{{ data[dbname]["Main_WithOutScan"] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

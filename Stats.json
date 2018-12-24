@@ -1,0 +1,124 @@
+{
+ "timestamp": "Monday, 24. December 2018 08:11PM",
+ "te": {
+  "Not_proofread": 14903,
+  "Proofread": 33260,
+  "Validated": 24693,
+  "Problematic": 58,
+  "Without_text": 1162,
+  "Main_WithOutScan": 9141,
+  "Main_WithScan": 3959,
+  "Main_Pages": 13100,
+  "Num_of_pages": 49383
+ },
+ "sa": {
+  "Not_proofread": 46873,
+  "Proofread": 4595,
+  "Validated": 2846,
+  "Problematic": 34,
+  "Without_text": 150,
+  "Main_WithOutScan": 19955,
+  "Main_WithScan": 430,
+  "Main_Pages": 20385,
+  "Num_of_pages": 51653
+ },
+ "or": {
+  "Not_proofread": 3455,
+  "Proofread": 3616,
+  "Validated": 2059,
+  "Problematic": 3,
+  "Without_text": 56,
+  "Main_WithOutScan": 560,
+  "Main_WithScan": 99,
+  "Main_Pages": 659,
+  "Num_of_pages": 7130
+ },
+ "ta": {
+  "Main_WithScan": 1688,
+  "Proofread": 18795,
+  "Validated": 9192,
+  "Problematic": 44,
+  "Without_text": 77,
+  "Main_WithOutScan": 4235,
+  "Not_proofread": 384428,
+  "Main_Pages": 5923,
+  "Num_of_pages": 403344
+ },
+ "as": {
+  "Not_proofread": 581,
+  "Proofread": 888,
+  "Validated": 207,
+  "Problematic": 0,
+  "Without_text": 5,
+  "Main_WithOutScan": 1348,
+  "Main_WithScan": 32,
+  "Main_Pages": 1380,
+  "Num_of_pages": 1474
+ },
+ "gu": {
+  "Not_proofread": 1118,
+  "Proofread": 12090,
+  "Validated": 9620,
+  "Problematic": 9,
+  "Without_text": 295,
+  "Main_WithOutScan": 4224,
+  "Main_WithScan": 1686,
+  "Main_Pages": 5910,
+  "Num_of_pages": 13512
+ },
+ "mr": {
+  "Main_WithScan": 1,
+  "Proofread": 718,
+  "Validated": 24,
+  "Problematic": 36,
+  "Without_text": 11,
+  "Main_WithOutScan": 1525,
+  "Not_proofread": 17799,
+  "Main_Pages": 1526,
+  "Num_of_pages": 18564
+ },
+ "pa": {
+  "Main_WithScan": 31,
+  "Proofread": 2064,
+  "Validated": 480,
+  "Problematic": 18,
+  "Without_text": 90,
+  "Main_WithOutScan": 115,
+  "Not_proofread": 4559,
+  "Main_Pages": 146,
+  "Num_of_pages": 6731
+ },
+ "ml": {
+  "Not_proofread": 12512,
+  "Proofread": 32163,
+  "Validated": 681,
+  "Problematic": 131,
+  "Without_text": 2050,
+  "Main_WithOutScan": 5688,
+  "Main_WithScan": 727,
+  "Main_Pages": 6415,
+  "Num_of_pages": 46856
+ },
+ "kn": {
+  "Main_WithScan": 131,
+  "Proofread": 3999,
+  "Validated": 1785,
+  "Problematic": 46,
+  "Without_text": 545,
+  "Main_WithOutScan": 20922,
+  "Not_proofread": 45898,
+  "Main_Pages": 21053,
+  "Num_of_pages": 50230
+ },
+ "bn": {
+  "Main_WithScan": 7516,
+  "Proofread": 17086,
+  "Validated": 7531,
+  "Problematic": 569,
+  "Without_text": 6819,
+  "Main_WithOutScan": 29,
+  "Not_proofread": 685229,
+  "Main_Pages": 7545,
+  "Num_of_pages": 709703
+ }
+}
