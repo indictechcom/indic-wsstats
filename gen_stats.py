@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
 import toolforge
 import json
 import datetime
 
 domains = [
+        'as',
         'bn',
         'gu',
         'kn',
@@ -16,6 +18,19 @@ domains = [
 ]
 
 siteData= {
+        "as": {
+                "namespace": {
+                        "page": 104,
+                        "index": 106
+                },
+                "category": {
+                        "Without_text": "পাঠ্য_নথকা",
+                        "Not_proofread": "মুদ্ৰণ_সংশোধন_কৰা_হোৱা_নাই",
+                        "Problematic": "সমস্যাজৰ্জৰ",
+                        "Proofread": "মুদ্ৰণ_সংশোধন",
+                        "Validated": "বৈধকৰণ"
+                }
+        },
         "bn": {
                 "namespace": {
                         "page": 104,
@@ -154,7 +169,7 @@ def doCatQueery(category, namespace):
     return "select count(cl_from) as number from categorylinks where cl_to='%s' and cl_from in (select page_id from page where page_namespace=%s)"% ( category, namespace)
 
 
-def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4):
+def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4, num_main_allpages, main_withscan, main_withoutscan):
 
         jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
         data = json.load(jsonFile)  # Read the JSON into the buffer
@@ -167,6 +182,9 @@ def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4):
         data[domain]["Problematic"] = num_q2
         data[domain]["Proofread"] = num_q3q4
         data[domain]["Validated"] = num_q4
+        data[domain]["Main_Pages"] = num_main_allpages
+        data[domain]["Main_WithScan"] = main_withscan
+        data[domain]["Main_WithOutScan"] = main_withoutscan
 
         ## Save our changes to JSON file
         jsonFile = open("Stats.json", "w+")
@@ -212,9 +230,25 @@ for domain in domains:
         row = cur.fetchone()
         num_q4 = int(row[0])
 
-        updateJson( domain, num_allpages, num_q0, num_q1, num_q2, num_q3+num_q4, num_q4 )
-        print(dbname)
-        print( "Total=", num_allpages, "Without_text=",num_q0, "Not_proofread=", num_q1, "Problematic=",num_q2, "Proofread=", num_q3+num_q4, "Validated=", num_q4)
+        # Get main namespace's total pages
+        num_main_allpages = "select count(distinct page_id) from page where page_namespace=0 and page_is_redirect=0;"
+        cur.execute( num_main_allpages )
+        row = cur.fetchone()
+        num_main_allpages = int(row[0])
+
+        # Get main namespace's with scan
+        main_withscan = "select count(distinct tl_from) as num from templatelinks left join page on page_id=tl_from where tl_namespace=%d and page_namespace=0;"%pageNsCode
+        cur.execute( main_withscan )
+        row = cur.fetchone()
+        main_withscan = int(row[0])
+
+        # Get main namespace's without scan
+        main_withoutscan = num_main_allpages - main_withscan
+
+        updateJson( domain, num_allpages, num_q0, num_q1, num_q2, num_q3+num_q4, num_q4, num_main_allpages, main_withscan, main_withoutscan )
+
+        cur.close ()
+        conn.close ()
 
 # timestamp
 jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
