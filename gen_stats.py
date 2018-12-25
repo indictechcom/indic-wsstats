@@ -242,8 +242,14 @@ for domain in domains:
         row = cur.fetchone()
         main_withscan = int(row[0])
 
+        #Get Disambiguation pages
+        q_disamb = "select count(page_title) from page where page_namespace = 0 and page_is_redirect = 0 and page_id in (select pp_page from page_props where pp_propname = 'disambiguation')"
+        cur.execute(q_disamb)
+        row = cur.fetchone ()
+        num_disambig = int(row[0])
+
         # Get main namespace's without scan
-        main_withoutscan = num_main_allpages - main_withscan
+        main_withoutscan = num_main_allpages - main_withscan - num_disambig
 
         updateJson( domain, num_allpages, num_q0, num_q1, num_q2, num_q3+num_q4, num_q4, num_main_allpages, main_withscan, main_withoutscan )
 
