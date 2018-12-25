@@ -49,8 +49,7 @@ def wikitable():
 !style="background: #ffffff;"|'''All pages'''
 !style="background: #90ff90;"|'''With scans'''
 !style="background: #ffa0a0;"|'''Without scans'''
-!style="background: #ffffff;"|'''%'''
-    """
+!style="background: #ffffff;"|'''%'''"""
 
     Jsondata.pop('timestamp', None)
 
@@ -58,22 +57,21 @@ def wikitable():
     Jsondata = json.dumps(Jsondata, sort_keys=True)
     Jsondata = json.loads( Jsondata )
 
-    for domains in Jsondata:
-        Wikitable += """
-|-
-|%s || %d || %d || %d || %d || %d || %d || %d || %d || %d || %.2f
-        """% (
-            domains,
-            Jsondata[domains]['Num_of_pages'],
-            Jsondata[domains]['Without_text'],
-            Jsondata[domains]['Not_proofread'],
-            Jsondata[domains]['Problematic'],
-            Jsondata[domains]['Proofread'],
-            Jsondata[domains]['Validated'],
-            Jsondata[domains]['Main_Pages'],
-            Jsondata[domains]['Main_WithScan'],
-            Jsondata[domains]['Main_WithOutScan'],
-            100 * Jsondata[domains]["Main_WithScan"] / (Jsondata[domains]["Main_WithScan"] + Jsondata[domains]["Main_WithOutScan"])
+    for domain in domains:
+
+        Wikitable += """\n|-
+|%s || %d || %d || %d || %d || %d || %d || %d || %d || %d || %.2f""" % (
+            domain,
+            Jsondata[domain]['Num_of_pages'],
+            Jsondata[domain]['Without_text'],
+            Jsondata[domain]['Not_proofread'],
+            Jsondata[domain]['Problematic'],
+            Jsondata[domain]['Proofread'],
+            Jsondata[domain]['Validated'],
+            Jsondata[domain]['Main_Pages'],
+            Jsondata[domain]['Main_WithScan'],
+            Jsondata[domain]['Main_WithOutScan'],
+            100 * Jsondata[domain]["Main_WithScan"] / (Jsondata[domain]["Main_WithScan"] + Jsondata[domain]["Main_WithOutScan"])
         )
 
     Wikitable +="\n|}"
