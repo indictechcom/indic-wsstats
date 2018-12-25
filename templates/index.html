@@ -88,9 +88,11 @@
             </th>
             <th class="th-sm">All pages
             </th>
-            <th class="th-sm withscans">with scans
+            <th class="th-sm withscans">With scans
             </th>
-            <th class="th-sm naked">w/o scans
+            <th class="th-sm naked">Without scans
+            </th>
+            <th class="th-sm">%
             </th>
         </tr>
         </thead>
@@ -108,6 +110,7 @@
                     <td>{{ data[dbname]["Main_Pages"] }}</td>
                     <td>{{ data[dbname]["Main_WithScan"] }}</td>
                     <td>{{ data[dbname]["Main_WithOutScan"] }}</td>
+                    <td>{{ (100* data[dbname]["Main_WithScan"] / ( data[dbname]["Main_WithScan"] + data[dbname]["Main_WithOutScan"] ) ) |round(2) }}</td>
                 </tr>
             {% endif %}
         {% endfor %}
