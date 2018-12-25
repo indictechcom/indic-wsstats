@@ -264,5 +264,5 @@ jsonFile.close()  # Close the JSON file
 data["timestamp"] = datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M%p")
 
 jsonFile = open("Stats.json", "w+")
-jsonFile.write(json.dumps(data, indent= True))
+jsonFile.write(json.dumps(data, sort_keys=True, indent= True))
 jsonFile.close()
