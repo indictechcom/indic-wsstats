@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/46/Wikisource-ico-48px.png">
-    <link rel="stylesheet"
-          href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet"
-          href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap.min.css">
-    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap.min.js"></script>
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
     <script>
         $(document).ready(function () {
             $('#statsTable').DataTable({
@@ -53,23 +43,17 @@
         .disamb {
             background: #dddddd;
         }
-        
-    </style>
-</head>
-<body class="light-blue-skin">
 
-<div class="container">
-    <div class="jumbotron">
-        <h1>Indic Wikisource Statistics</h1>
-        <p>A tool for Indic Community</p>
-    </div>
-    <br>
+    </style>
+{% endblock head %}
+
+{% block main %}
     <p> Statistics on {{ data["timestamp"] }} </p>
     <table id="statsTable" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th colspan="7" style="text-align:center">Page namespace</th>
-            <th colspan="3" style="text-align:center">Main namespace</th>
+            <th colspan="4" style="text-align:center">Main namespace</th>
         </tr>
         <tr>
             <th class="th-sm">Language
@@ -117,12 +101,7 @@
         </tbody>
     </table>
     <br>
-    <button type="submit" class="btn btn-primary" onclick="window.location.href='{{ url_for("wikitable") }}'">Get Wikitable</button>
-    <br>
-    <hr>
-    <footer class="footer">
-        <p>Created and maintained by <a href="https://meta.wikimedia.org/wiki/User:Jayprakash12345">Jayprakash</a>, <a href="https://meta.wikimedia.org/wiki/Indic-TechCom">Indic-TechCom</a> ( <a href="https://github.com/Jayprakash-SE/indic-wsstats">View Source</a> )</p>
-    </footer>
-</div>
-</body>
-</html>
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='{{ url_for("wikitable") }}'">Get
+        Wikitable
+    </button>
+{% endblock %}

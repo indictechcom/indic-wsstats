@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <title>{% block title %}WikisourceStats{% endblock title %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/46/Wikisource-ico-48px.png">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet"
+              href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet"
+              href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap.min.css">
+
+        <!-- Bootstrap, jQuery and others JS -->
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap.min.js"></script>
+    {% endblock head %}
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <a href="{{ url_for('index') }}" class="navbar-brand">WikisourceStats</a>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Indic Wikisource Statistics</h1>
+        <p>A tool for Indic Community</p>
+    </div>
+    <br>
+    {% block main %}
+    {% endblock main %}
+    <br>
+    <hr>
+    <footer class="footer">
+        <p>Created and maintained by <a href="https://meta.wikimedia.org/wiki/User:Jayprakash12345">Jayprakash</a>, <a
+                href="https://meta.wikimedia.org/wiki/Indic-TechCom">Indic-TechCom</a> ( <a
+                href="https://github.com/Jayprakash-SE/indic-wsstats">View Source</a> )</p>
+    </footer>
+</div>
+</body>
+</html>
