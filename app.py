@@ -1,5 +1,5 @@
 import json
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, jsonify
 
 app = Flask(__name__)
 
@@ -76,6 +76,15 @@ def wikitable():
 
     Wikitable +="\n|}"
     return render_template('wikitable.html', Wikitable= Wikitable)
+
+# API
+@app.route('/api/stats')
+def statsAPI():
+    jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
+    Jsondata = json.load( jsonFile )  # Read the JSON into the buffer
+    jsonFile.close()  # Close the JSON file
+
+    return jsonify( Jsondata )
 
 if __name__ == '__main__':
     app.run()
