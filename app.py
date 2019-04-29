@@ -1,7 +1,9 @@
 import json
 from flask import Flask, render_template, url_for, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 domains = [
         'as',
@@ -85,6 +87,11 @@ def statsAPI():
     jsonFile.close()  # Close the JSON file
 
     return jsonify( Jsondata )
+
+
+@app.route('/graph')
+def graph():
+    return render_template('graph.html')
 
 if __name__ == '__main__':
     app.run()
