@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='graphChart.js') }}"></script>
+{% endblock head %}
+
+{% block main %}
+    <div id="graph-charts">
+        <h3>Total Page Namespace Pages</h3>
+        <canvas id="bar-mainpage" style="border:1px solid;"></canvas>
+        <h3>Without text</h3>
+        <canvas id="bar-withouttext" style="border:1px solid"></canvas>
+        <h3>Proofread Pages</h3>
+        <canvas id="bar-proofread" style="border:1px solid"></canvas>
+        <h3>Validated</h3>
+        <canvas id="bar-validated" style="border:1px solid"></canvas>
+    </div>
+{% endblock main %}
