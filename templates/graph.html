@@ -2,8 +2,8 @@
 
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Chart.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='Chart.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='graphChart.js') }}"></script>
 {% endblock head %}
 
