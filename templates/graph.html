@@ -9,13 +9,31 @@
 
 {% block main %}
     <div id="graph-charts">
-        <h3>Total Page Namespace Pages</h3>
-        <canvas id="bar-mainpage" style="border:1px solid;"></canvas>
-        <h3>Without text</h3>
-        <canvas id="bar-withouttext" style="border:1px solid"></canvas>
-        <h3>Proofread Pages</h3>
-        <canvas id="bar-proofread" style="border:1px solid"></canvas>
-        <h3>Validated</h3>
-        <canvas id="bar-validated" style="border:1px solid"></canvas>
+        <br>
+        <div id="pagenamespace">
+            <h2>By Page namespace</h2>
+            <h3>All pages</h3>
+            <canvas id="bar-pagenamespace" style="border:1px solid;"></canvas>
+            <h3>Without text</h3>
+            <canvas id="bar-withouttext" style="border:1px solid"></canvas>
+            <h3>Not proofread</h3>
+            <canvas id="bar-notproofread" style="border:1px solid"></canvas>
+            <h3>Problematic</h3>
+            <canvas id="bar-problematic" style="border:1px solid"></canvas>
+            <h3>Proofread Pages</h3>
+            <canvas id="bar-proofread" style="border:1px solid"></canvas>
+            <h3>Validated</h3>
+            <canvas id="bar-validated" style="border:1px solid"></canvas>
+        </div>
+        <br><br>
+        <div id="mainnamespace">
+            <h2>By Main namespace</h2>
+            <h3>All pages</h3>
+            <canvas id="bar-mainpage" style="border:1px solid;"></canvas>
+            <h3>With scans</h3>
+            <canvas id="bar-withscan" style="border:1px solid"></canvas>
+            <h3>Without scans</h3>
+            <canvas id="bar-withoutscan" style="border:1px solid"></canvas>
+        </div>
     </div>
 {% endblock main %}

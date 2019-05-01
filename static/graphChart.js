@@ -10,10 +10,16 @@ $(function () {
         .done(function (data) {
 
             var domains = [];
-            var Main_Pages = [];
+            var PageNamescpacePages = [];
             var Without_text = [];
+            var NotProofread = [];
+            var Problematic = [];
             var Proofread = [];
             var Validated = [];
+            var Main_Pages = [];
+            var With_scans = [];
+            var Without_scans = [];
+
 
             // Create the array of graph elements
             $.each(data, function (key, value) {
@@ -21,10 +27,15 @@ $(function () {
                     return;
                 }
                 domains.push(key);
-                Main_Pages.push(data[key].Main_Pages);
+                PageNamescpacePages.push(data[key].Num_of_pages);
                 Without_text.push(data[key].Without_text);
+                NotProofread.push(data[key].Not_proofread);
+                Problematic.push(data[key].Problematic);
                 Proofread.push(data[key].Proofread);
                 Validated.push(data[key].Validated);
+                Main_Pages.push(data[key].Main_Pages);
+                With_scans.push(data[key].Main_WithScan);
+                Without_scans.push(data[key].Main_WithOutScan);
 
             });
 
@@ -76,16 +87,26 @@ $(function () {
             }
 
             // Select the elements by id
-            var mainpage = $("#bar-mainpage");
+            var pagenamespace = $("#bar-pagenamespace");
             var withouttext = $("#bar-withouttext");
+            var notproofread = $("#bar-notproofread");
+            var problematic = $("#bar-problematic");
             var proofread = $("#bar-proofread");
             var validated = $("#bar-validated");
+            var mainpage = $("#bar-mainpage");
+            var withscan = $("#bar-withscan");
+            var withoutscan = $("#bar-withoutscan");
 
             // Create the chart
-            CreateBar(mainpage, CreateDataSet(domains, Main_Pages), CreateOptions("Total Page Namespace Pages"));
+            CreateBar(pagenamespace, CreateDataSet(domains, PageNamescpacePages), CreateOptions("Total Pages"));
             CreateBar(withouttext, CreateDataSet(domains, Without_text), CreateOptions("Without text"));
+            CreateBar(notproofread, CreateDataSet(domains, NotProofread), CreateOptions("Not proofread"));
+            CreateBar(problematic, CreateDataSet(domains, Problematic), CreateOptions("Problematic"));
             CreateBar(proofread, CreateDataSet(domains, Proofread), CreateOptions("Proofread Pages"));
             CreateBar(validated, CreateDataSet(domains, Validated), CreateOptions("Validated"));
+            CreateBar(mainpage, CreateDataSet(domains, Main_Pages), CreateOptions("Total Pages"));
+            CreateBar(withscan, CreateDataSet(domains, With_scans), CreateOptions("With scans"));
+            CreateBar(withoutscan, CreateDataSet(domains, Without_scans), CreateOptions("Without scans"));
 
         })
         .fail(function () {
