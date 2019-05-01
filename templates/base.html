@@ -18,6 +18,15 @@
         <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
         <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap.min.js"></script>
         <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <style>
+            .title-heading {
+                font-family: 'Amatic SC', cursive;
+                text-align: center;
+                font-size: 63px;
+            }
+        </style>
+
     {% endblock head %}
 </head>
 <body>
@@ -40,9 +49,8 @@
     </div>
 </nav>
 <div class="container">
-    <div class="jumbotron">
-        <h1>Indic Wikisource Statistics</h1>
-        <p>A tool for Indic Community</p>
+    <div>
+        <h1 class="page-header title-heading"> Indic Wikisource Statistic </h1>
     </div>
     <br>
     {% block main %}
