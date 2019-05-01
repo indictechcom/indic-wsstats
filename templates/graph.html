@@ -9,7 +9,14 @@
 
 {% block main %}
     <div id="graph-charts">
-        <br>
+        <div id="percentage">
+            <h2>By Percentage</h2>
+            <h3>Proofread</h3>
+            <canvas id="bar-proofreadper" style="border:1px solid;"></canvas>
+            <h3>Transcluded</h3>
+            <canvas id="bar-transcludedper" style="border:1px solid"></canvas>
+        </div>
+        <br><br>
         <div id="pagenamespace">
             <h2>By Page namespace</h2>
             <h3>All pages</h3>

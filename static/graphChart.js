@@ -20,6 +20,8 @@ $(function () {
             var With_scans = [];
             var Without_scans = [];
 
+            var proofreadPercentage = [];
+            var transcludedPercentage = [];
 
             // Create the array of graph elements
             $.each(data, function (key, value) {
@@ -37,6 +39,8 @@ $(function () {
                 With_scans.push(data[key].Main_WithScan);
                 Without_scans.push(data[key].Main_WithOutScan);
 
+                proofreadPercentage.push(Math.round(100 * ((100 * data[key].Proofread / data[key].Num_of_pages))) / 100);
+                transcludedPercentage.push(Math.round(100 * (100 * data[key].Main_WithScan / (data[key].Main_WithScan + data[key].Main_WithOutScan))) / 100);
             });
 
             // Create array for background color
@@ -87,23 +91,33 @@ $(function () {
             }
 
             // Select the elements by id
+            var proofreadper = $("#bar-proofreadper");
+            var transcludedper = $("#bar-transcludedper");
+
             var pagenamespace = $("#bar-pagenamespace");
             var withouttext = $("#bar-withouttext");
             var notproofread = $("#bar-notproofread");
             var problematic = $("#bar-problematic");
             var proofread = $("#bar-proofread");
             var validated = $("#bar-validated");
+
             var mainpage = $("#bar-mainpage");
             var withscan = $("#bar-withscan");
             var withoutscan = $("#bar-withoutscan");
 
-            // Create the chart
+            // Create the percentage chart
+            CreateBar(proofreadper, CreateDataSet(domains, proofreadPercentage), CreateOptions("Proofread %"));
+            CreateBar(transcludedper, CreateDataSet(domains, transcludedPercentage), CreateOptions("Transcluded %"));
+
+            // Create the page namespace chart
             CreateBar(pagenamespace, CreateDataSet(domains, PageNamescpacePages), CreateOptions("Total Pages"));
             CreateBar(withouttext, CreateDataSet(domains, Without_text), CreateOptions("Without text"));
             CreateBar(notproofread, CreateDataSet(domains, NotProofread), CreateOptions("Not proofread"));
             CreateBar(problematic, CreateDataSet(domains, Problematic), CreateOptions("Problematic"));
             CreateBar(proofread, CreateDataSet(domains, Proofread), CreateOptions("Proofread Pages"));
             CreateBar(validated, CreateDataSet(domains, Validated), CreateOptions("Validated"));
+
+            // Create the main namespace chart
             CreateBar(mainpage, CreateDataSet(domains, Main_Pages), CreateOptions("Total Pages"));
             CreateBar(withscan, CreateDataSet(domains, With_scans), CreateOptions("With scans"));
             CreateBar(withoutscan, CreateDataSet(domains, Without_scans), CreateOptions("Without scans"));
