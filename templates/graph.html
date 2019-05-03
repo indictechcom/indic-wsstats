@@ -5,6 +5,40 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='Chart.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='Chart.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='graphChart.js') }}"></script>
+    <style>
+        h2 {
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        h3 {
+            text-shadow: 1px 1px 2px #000000;
+        }
+
+        canvas {
+            border: 1px solid;
+        }
+
+        .shadow {
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+        }
+
+        .p-3 {
+            padding: 1rem !important;
+        }
+
+        .mb-5, .my-5 {
+            margin-bottom: 3rem !important;
+        }
+
+        .rounded {
+            border-radius: .5rem !important;
+        }
+
+        .bg-white {
+            background-color: #fff !important;
+        }
+    </style>
 {% endblock head %}
 
 {% block main %}
@@ -12,35 +46,35 @@
         <div id="percentage">
             <h2>By Percentage</h2>
             <h3>Proofread</h3>
-            <canvas id="bar-proofreadper" style="border:1px solid;"></canvas>
+            <canvas id="bar-proofreadper" class="shadow p-3 mb-5 bg-white rounded"></canvas>
             <h3>Transcluded</h3>
-            <canvas id="bar-transcludedper" style="border:1px solid"></canvas>
+            <canvas id="bar-transcludedper" class="shadow p-3 mb-5 bg-white rounded"></canvas>
         </div>
         <br><br>
         <div id="pagenamespace">
             <h2>By Page namespace</h2>
             <h3>All pages</h3>
-            <canvas id="bar-pagenamespace" style="border:1px solid;"></canvas>
+            <canvas id="bar-pagenamespace" class="shadow p-3 mb-5 bg-white rounded"></canvas>
             <h3>Without text</h3>
-            <canvas id="bar-withouttext" style="border:1px solid"></canvas>
+            <canvas id="bar-withouttext" class="shadow p-3 mb-5 bg-white rounded"></canvas>
             <h3>Not proofread</h3>
-            <canvas id="bar-notproofread" style="border:1px solid"></canvas>
+            <canvas id="bar-notproofread" class="shadow p-3 mb-5 bg-white rounded"></canvas>
             <h3>Problematic</h3>
-            <canvas id="bar-problematic" style="border:1px solid"></canvas>
+            <canvas id="bar-problematic" class="shadow p-3 mb-5 bg-white rounded"></canvas>
             <h3>Proofread Pages</h3>
-            <canvas id="bar-proofread" style="border:1px solid"></canvas>
+            <canvas id="bar-proofread" class="shadow p-3 mb-5 bg-white rounded"></canvas>
             <h3>Validated</h3>
-            <canvas id="bar-validated" style="border:1px solid"></canvas>
+            <canvas id="bar-validated" class="shadow p-3 mb-5 bg-white rounded"></canvas>
         </div>
         <br><br>
         <div id="mainnamespace">
             <h2>By Main namespace</h2>
             <h3>All pages</h3>
-            <canvas id="bar-mainpage" style="border:1px solid;"></canvas>
+            <canvas id="bar-mainpage" class="shadow p-3 mb-5 bg-white rounded"></canvas>
             <h3>With scans</h3>
-            <canvas id="bar-withscan" style="border:1px solid"></canvas>
+            <canvas id="bar-withscan" class="shadow p-3 mb-5 bg-white rounded"></canvas>
             <h3>Without scans</h3>
-            <canvas id="bar-withoutscan" style="border:1px solid"></canvas>
+            <canvas id="bar-withoutscan" class="shadow p-3 mb-5 bg-white rounded"></canvas>
         </div>
     </div>
 {% endblock main %}
