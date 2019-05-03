@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 from flask import Flask, render_template, url_for, jsonify
 from flask_cors import CORS
