@@ -8,7 +8,9 @@
     "Problematic": 22,
     "Proofread": 2671,
     "Validated": 1417,
-    "Without_text": 98
+    "Without_text": 98,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "bn": {
     "Main_Pages": 7558,
@@ -19,7 +21,9 @@
     "Problematic": 572,
     "Proofread": 17703,
     "Validated": 7548,
-    "Without_text": 6898
+    "Without_text": 6898,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "gu": {
     "Main_Pages": 6137,
@@ -30,7 +34,9 @@
     "Problematic": 9,
     "Proofread": 13659,
     "Validated": 11283,
-    "Without_text": 317
+    "Without_text": 317,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "kn": {
     "Main_Pages": 21063,
@@ -41,7 +47,9 @@
     "Problematic": 45,
     "Proofread": 4072,
     "Validated": 1811,
-    "Without_text": 571
+    "Without_text": 571,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "ml": {
     "Main_Pages": 6420,
@@ -52,7 +60,9 @@
     "Problematic": 131,
     "Proofread": 32328,
     "Validated": 690,
-    "Without_text": 2051
+    "Without_text": 2051,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "mr": {
     "Main_Pages": 1574,
@@ -63,7 +73,9 @@
     "Problematic": 35,
     "Proofread": 1054,
     "Validated": 34,
-    "Without_text": 11
+    "Without_text": 11,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "or": {
     "Main_Pages": 659,
@@ -74,7 +86,9 @@
     "Problematic": 3,
     "Proofread": 4071,
     "Validated": 3029,
-    "Without_text": 60
+    "Without_text": 60,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "pa": {
     "Main_Pages": 152,
@@ -85,7 +99,9 @@
     "Problematic": 43,
     "Proofread": 9923,
     "Validated": 1400,
-    "Without_text": 293
+    "Without_text": 293,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "sa": {
     "Main_Pages": 20851,
@@ -96,7 +112,9 @@
     "Problematic": 22,
     "Proofread": 5976,
     "Validated": 3588,
-    "Without_text": 158
+    "Without_text": 158,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "ta": {
     "Main_Pages": 6250,
@@ -107,7 +125,9 @@
     "Problematic": 65,
     "Proofread": 22072,
     "Validated": 10468,
-    "Without_text": 94
+    "Without_text": 94,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "te": {
     "Main_Pages": 13233,
@@ -118,7 +138,9 @@
     "Problematic": 69,
     "Proofread": 34970,
     "Validated": 25506,
-    "Without_text": 1193
+    "Without_text": 1193,
+    "Main_APS": 1,
+    "Page_APS": 1
   },
   "timestamp": "Monday, 29. April 2019 06:02AM"
 }

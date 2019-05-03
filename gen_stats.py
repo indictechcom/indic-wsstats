@@ -166,10 +166,12 @@ siteData= {
 
 
 def doCatQueery(category, namespace):
-    return "select count(cl_from) as number from categorylinks where cl_to='%s' and cl_from in (select page_id from page where page_namespace=%s)"% ( category, namespace)
+    return "select count(cl_from) as number from categorylinks where cl_to='%s' and cl_from in (select page_id from page where page_namespace=%s)" % (
+    category, namespace)
 
 
-def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4, num_main_allpages, main_withscan, main_withoutscan):
+def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4, num_main_allpages, main_withscan,
+               main_withoutscan, main_apg, page_aps):
 
         jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
         data = json.load(jsonFile)  # Read the JSON into the buffer
@@ -185,8 +187,10 @@ def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4, n
         data[domain]["Main_Pages"] = num_main_allpages
         data[domain]["Main_WithScan"] = main_withscan
         data[domain]["Main_WithOutScan"] = main_withoutscan
+        data[domain]["Main_APS"] = main_apg
+        data[domain]["Page_APS"] = page_aps
 
-        ## Save our changes to JSON file
+        # Save our changes to JSON file
         jsonFile = open("Stats.json", "w+")
         jsonFile.write(json.dumps(data, indent= True))
         jsonFile.close()
@@ -200,7 +204,7 @@ for domain in domains:
         pageNsCode = siteData[domain]['namespace']['page']
 
         # Get all page in Page namespace
-        num_allpages = "select count(page_id) as number from page where page_namespace=%s and page_is_redirect=0"% (pageNsCode)
+        num_allpages = "select count(page_id) as number from page where page_namespace=%s and page_is_redirect=0" % pageNsCode
         cur.execute( num_allpages )
         row = cur.fetchone()
         num_allpages = int(row[0])
@@ -251,7 +255,19 @@ for domain in domains:
         # Get main namespace's without scan
         main_withoutscan = num_main_allpages - main_withscan - num_disambig
 
-        updateJson( domain, num_allpages, num_q0, num_q1, num_q2, num_q3+num_q4, num_q4, num_main_allpages, main_withscan, main_withoutscan )
+        # Get Average Page Size
+        main_apg = "select avg(page_len) from page where page_namespace = 0;"
+        cur.execute(main_apg)
+        row = cur.fetchone()
+        main_apg = int(row[0])
+
+        page_aps = "select avg(page_len) from page where page_namespace = %d;" % pageNsCode
+        cur.execute(page_aps)
+        row = cur.fetchone()
+        page_aps = int(row[0])
+
+        updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3 + num_q4, num_q4, num_main_allpages,
+                   main_withscan, main_withoutscan, main_apg, page_aps)
 
         cur.close ()
         conn.close ()
