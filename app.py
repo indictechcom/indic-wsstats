@@ -2,6 +2,8 @@ import json
 from flask import Flask, render_template, url_for, jsonify
 from flask_cors import CORS
 
+version = "2.0"
+
 app = Flask(__name__)
 CORS(app)
 
