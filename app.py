@@ -3,25 +3,12 @@
 import json
 from flask import Flask, render_template, url_for, jsonify
 from flask_cors import CORS
+from config import domains
 
 version = "2.0"
 
 app = Flask(__name__)
 CORS(app)
-
-domains = [
-        'as',
-        'bn',
-        'gu',
-        'kn',
-        'ml',
-        'mr',
-        'or',
-        'pa',
-        'sa',
-        'ta',
-        'te'
-]
 
 @app.route('/')
 def index():
