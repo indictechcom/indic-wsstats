@@ -4,6 +4,7 @@ domains = [
     'as',
     'bn',
     'gu',
+    'hi',
     'kn',
     'ml',
     'mr',
@@ -52,6 +53,19 @@ siteData= {
                 "Problematic": "સમસ્યારૂપ",
                 "Proofread": "ભૂલશુદ્ધિ",
                 "Validated": "પ્રમાણિત"
+        }
+    },
+    "hi": {
+        "namespace": {
+                "page": 250,
+                "index": 252
+        },
+        "category": {
+                "Without_text": "लेख_के_बिना",
+                "Not_proofread": "परिक्षण_हुआ_नहीं",
+                "Problematic": "समस्याकारक",
+                "Proofread": "परिक्षण_करें",
+                "Validated": "प्रमाणित"
         }
     },
     "kn": {
