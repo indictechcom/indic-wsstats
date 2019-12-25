@@ -3,3 +3,4 @@ toolforge
 datetime
 flask_cors
 pywikisource
+flask-bootstrap

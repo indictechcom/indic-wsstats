@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 
 import json
-from flask import Flask, render_template, url_for, jsonify
+from flask import Flask, render_template, url_for, jsonify, request
 from flask_cors import CORS
 from config import domains
+from flask_bootstrap import Bootstrap
 
 version = "2.0"
 
 app = Flask(__name__)
 CORS(app)
+Bootstrap(app)
 
 @app.route('/')
 def index():
@@ -83,6 +85,28 @@ def statsAPI():
 @app.route('/graph')
 def graph():
     return render_template('graph.html')
+
+@app.route('/activeuser')
+def activeuser():
+    ws_project = request.args.get('project', None)
+    ws_month = request.args.get('month', None)
+    data = None
+    total = {
+        "proofread": 0,
+        "validate": 0
+    }
+    if ws_month is not None:
+        jsonFile = open("ActiveUserStats/" + ws_month + ".json", "r")
+        data = json.load( jsonFile )
+        jsonFile.close()
+        data = data[ws_project]
+
+        # Count the total
+        for count in data.values():
+            total["proofread"] = total["proofread"] + int(count["proofread"])
+            total["validate"] = total["validate"] + int(count["validate"])
+
+    return render_template('activeuser.html', data= data, project=ws_project, total=total)
 
 if __name__ == '__main__':
     app.run()

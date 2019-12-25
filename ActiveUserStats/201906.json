@@ -1,0 +1,918 @@
+{
+ "as": {
+  "Ani ttbr": {
+   "proofread": "50",
+   "validate": "41"
+  },
+  "Bhaskarjyoti Bhuyan": {
+   "proofread": "0",
+   "validate": "3"
+  },
+  "Bishnu Saikia": {
+   "proofread": "4",
+   "validate": "0"
+  },
+  "Chandramika Bora": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "CommonsDelinker": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Dikshita Nath": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "Gitartha.bordoloi": {
+   "proofread": "79",
+   "validate": "45"
+  },
+  "Gitikasaikia": {
+   "proofread": "11",
+   "validate": "0"
+  },
+  "Joli": {
+   "proofread": "22",
+   "validate": "31"
+  },
+  "JyotiPN": {
+   "proofread": "128",
+   "validate": "123"
+  },
+  "Madhusmita Borgohain": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Renamed user 2wz4ntr": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "SlowPhoton": {
+   "proofread": "43",
+   "validate": "1"
+  },
+  "Tazninwiki": {
+   "proofread": "1",
+   "validate": "7"
+  },
+  "Vanished user qwerty12345": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "অনামিকা(চুমু) বড়া": {
+   "proofread": "27",
+   "validate": "221"
+  },
+  "ঈশান জ্যোতি বৰা": {
+   "proofread": "189",
+   "validate": "61"
+  },
+  "দিব্য দত্ত": {
+   "proofread": "14",
+   "validate": "11"
+  },
+  "নয়ন জ্যোতি নাথ": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "নিৰঞ্জন বড়া": {
+   "proofread": "18",
+   "validate": "0"
+  }
+ },
+ "bn": {
+  "Ahad.a007": {
+   "proofread": "75",
+   "validate": "0"
+  },
+  "Amit Ghosh": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Anup Sadi": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Arindam Maitra": {
+   "proofread": "8",
+   "validate": "0"
+  },
+  "Aroy18": {
+   "proofread": "0",
+   "validate": "12"
+  },
+  "Atudu": {
+   "proofread": "413",
+   "validate": "0"
+  },
+  "Bodhisattwa": {
+   "proofread": "4",
+   "validate": "0"
+  },
+  "Hrishikes": {
+   "proofread": "0",
+   "validate": "21"
+  },
+  "Innocentbunny": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "Jayantanth": {
+   "proofread": "9",
+   "validate": "0"
+  },
+  "Kinjal bose 78": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Mahir256": {
+   "proofread": "19",
+   "validate": "0"
+  },
+  "Marajozkee": {
+   "proofread": "3",
+   "validate": "0"
+  },
+  "Mohaguru": {
+   "proofread": "77",
+   "validate": "38"
+  },
+  "Mouryan": {
+   "proofread": "3",
+   "validate": "0"
+  },
+  "Nettime Sujata": {
+   "proofread": "6",
+   "validate": "0"
+  },
+  "Pasaban": {
+   "proofread": "4",
+   "validate": "0"
+  },
+  "Pmlineditor": {
+   "proofread": "10",
+   "validate": "0"
+  },
+  "RajaAlhaz": {
+   "proofread": "5",
+   "validate": "0"
+  },
+  "Rangan Datta Wiki": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Shahriar Kabir Pavel": {
+   "proofread": "182",
+   "validate": "562"
+  },
+  "Sourav-21": {
+   "proofread": "10",
+   "validate": "1"
+  },
+  "Subrata8352": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Sumitsurai": {
+   "proofread": "4",
+   "validate": "0"
+  },
+  "Tanay barisha": {
+   "proofread": "37",
+   "validate": "0"
+  },
+  "Tarunsamanta": {
+   "proofread": "4",
+   "validate": "0"
+  },
+  "Titodutta": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "আফতাবুজ্জামান": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "উৎসর্গ রায়": {
+   "proofread": "3",
+   "validate": "0"
+  },
+  "খাঁ শুভেন্দু": {
+   "proofread": "3",
+   "validate": "0"
+  },
+  "লক্ষ্মণ ভাণ্ডারী": {
+   "proofread": "0",
+   "validate": "0"
+  }
+ },
+ "gu": {
+  "92saeedshaikh": {
+   "proofread": "6",
+   "validate": "0"
+  },
+  "Amvaishnav": {
+   "proofread": "29",
+   "validate": "144"
+  },
+  "Drdeepakbhatt": {
+   "proofread": "0",
+   "validate": "17"
+  },
+  "Gazal world": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Maitri Shah1": {
+   "proofread": "12",
+   "validate": "0"
+  },
+  "Sushant savla": {
+   "proofread": "154",
+   "validate": "44"
+  },
+  "Vijay B. Barot": {
+   "proofread": "17",
+   "validate": "0"
+  }
+ },
+ "hi": {
+  "Abhinav619": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Amishjnu": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Hrishikes": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "J ansari": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Nilesh shukla": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "Poonam Tiwari 16": {
+   "proofread": "0",
+   "validate": "2"
+  },
+  "अजीत कुमार तिवारी": {
+   "proofread": "18",
+   "validate": "23"
+  },
+  "अनिरुद्ध कुमार": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "अम्बिका साव": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "अविनाश कुमार सिंह": {
+   "proofread": "90",
+   "validate": "35"
+  },
+  "चन्द्र शेखर सिंह": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "नीलम": {
+   "proofread": "39",
+   "validate": "45"
+  },
+  "रोहित साव27": {
+   "proofread": "23",
+   "validate": "21"
+  },
+  "सीमा1": {
+   "proofread": "10",
+   "validate": "150"
+  }
+ },
+ "kn": {
+  "Ashwini2001": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Deekshavishwakarma": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Durga bhat bollurodi": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Indudhar Haleangadi": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Jasmitha M J": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Merlin Lidwin Lobo": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Pavithra tej": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Srushti S Shetty": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Swathivishwakarma": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Yakshitha": {
+   "proofread": "0",
+   "validate": "0"
+  }
+ },
+ "ml": {
+  "Anjaliep": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Jayachandran1976": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Manuspanicker": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "ചെങ്കുട്ടുവൻ": {
+   "proofread": "1",
+   "validate": "0"
+  }
+ },
+ "mr": {
+  "Asavari sakore": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Harshad Thite": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Komal Sambhudas": {
+   "proofread": "3",
+   "validate": "49"
+  },
+  "PallaviGadgil": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "QueerEcofeminist": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Shantanuo": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Soham Sambhudas": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Svnavare": {
+   "proofread": "223",
+   "validate": "5"
+  },
+  "Swati pm": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "TellATaleAL": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Tushar Sukhdev Shinde": {
+   "proofread": "0",
+   "validate": "3"
+  },
+  "अदिती दाते": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "उत्कर्षा सुमित": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "कल्याणी कोतकर": {
+   "proofread": "0",
+   "validate": "1"
+  },
+  "जाधव प्रियांका": {
+   "proofread": "1",
+   "validate": "63"
+  },
+  "नेहा वैशंपायन": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "फुलपाखरू७०": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "मानसी माधव झोरे": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "रुपाली तुषार निरगुडे": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "रोहित वाळिंबे": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "शुभदा अमित कुलकर्णी": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "सायली प्रभाकर शिगवण": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "सुबोध कुलकर्णी": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "सुरेश चंदर राठोड": {
+   "proofread": "0",
+   "validate": "0"
+  }
+ },
+ "or": {
+  "Chinmayee Mishra": {
+   "proofread": "6",
+   "validate": "1"
+  },
+  "Pmsarangi": {
+   "proofread": "14",
+   "validate": "4"
+  },
+  "Psubhashish": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Radhadwibedi": {
+   "proofread": "1",
+   "validate": "1"
+  },
+  "Ssgapu22": {
+   "proofread": "0",
+   "validate": "0"
+  }
+ },
+ "pa": {
+  "Akashdeep sidhu faridkot": {
+   "proofread": "1",
+   "validate": "10"
+  },
+  "Alex brollo": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Amanjot bhattal": {
+   "proofread": "3",
+   "validate": "0"
+  },
+  "Amreen Zafarpur": {
+   "proofread": "47",
+   "validate": "0"
+  },
+  "Armaan kakrala": {
+   "proofread": "15",
+   "validate": "8"
+  },
+  "Benipal hardarshan": {
+   "proofread": "11",
+   "validate": "3"
+  },
+  "Charan Gill": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Dugal harpreet": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "GURJANT 784": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Gill harmanjot": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Gill jassu": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Gurdeep Singh Somal": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "Gurtej Chauhan": {
+   "proofread": "227",
+   "validate": "130"
+  },
+  "Harkawal Benipal": {
+   "proofread": "27",
+   "validate": "2"
+  },
+  "Harshaan Ghuman": {
+   "proofread": "4",
+   "validate": "0"
+  },
+  "Harwant01": {
+   "proofread": "6",
+   "validate": "0"
+  },
+  "Karamjit Singh Gathwala": {
+   "proofread": "65",
+   "validate": "470"
+  },
+  "Kaur Nirmaljit": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "Manavpreet Kaur": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Mannat kaur": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Mulkh Singh": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Ninder Brar Faridkot": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Pavanjot benipal": {
+   "proofread": "1",
+   "validate": "2"
+  },
+  "Rajdeep ghuman": {
+   "proofread": "64",
+   "validate": "0"
+  },
+  "Rorki amandeep sandhu": {
+   "proofread": "47",
+   "validate": "2"
+  },
+  "Rorki amritpal singh": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "SGill (WMF)": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Satdeep Gill": {
+   "proofread": "4",
+   "validate": "0"
+  },
+  "Satpal Dandiwal": {
+   "proofread": "11",
+   "validate": "0"
+  },
+  "Simranjeet Sidhu": {
+   "proofread": "252",
+   "validate": "2"
+  },
+  "Tamanpreet Kaur": {
+   "proofread": "24",
+   "validate": "0"
+  },
+  "ਨਿਸ਼ਾਨ ਸਿੰਘ ਵਿਰਦੀ": {
+   "proofread": "15",
+   "validate": "0"
+  }
+ },
+ "sa": {
+  "Akshata1988": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Jnsubbu": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "KrishnamurthyAshwini": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Latha Raghavendra": {
+   "proofread": "6",
+   "validate": "0"
+  },
+  "Leelavathi S 1960": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Manjukanalli": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Manjunath Ka Ho": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Narayanan V T": {
+   "proofread": "73",
+   "validate": "0"
+  },
+  "Pratap.simha": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Raghavendra Purohit": {
+   "proofread": "20",
+   "validate": "8"
+  },
+  "Ravindranathamenon": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Shubha": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Soorya Hebbar": {
+   "proofread": "13",
+   "validate": "12"
+  },
+  "Surekha Kamath": {
+   "proofread": "5",
+   "validate": "37"
+  },
+  "Swaminathan sitapathi": {
+   "proofread": "37",
+   "validate": "0"
+  }
+ },
+ "ta": {
+  "0212aishwarya": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Abinaya Murthy": {
+   "proofread": "18",
+   "validate": "0"
+  },
+  "Arularasan. G": {
+   "proofread": "87",
+   "validate": "12"
+  },
+  "Arun kaniyam": {
+   "proofread": "209",
+   "validate": "1"
+  },
+  "Balajijagadesh": {
+   "proofread": "260",
+   "validate": "2"
+  },
+  "Balu1967": {
+   "proofread": "79",
+   "validate": "0"
+  },
+  "Deepa arul": {
+   "proofread": "35",
+   "validate": "1"
+  },
+  "Deepa arul kaniyam": {
+   "proofread": "0",
+   "validate": "34"
+  },
+  "Divya kaniyam": {
+   "proofread": "195",
+   "validate": "0"
+  },
+  "FarithabanuH": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Guruleninn": {
+   "proofread": "120",
+   "validate": "2"
+  },
+  "Hibayathullah": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "Info-farmer": {
+   "proofread": "5",
+   "validate": "138"
+  },
+  "J.shobia": {
+   "proofread": "43",
+   "validate": "0"
+  },
+  "Jayantanth": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Jeyapriya nangur": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "Joshua-timothy-J": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Jothika kannan": {
+   "proofread": "3",
+   "validate": "0"
+  },
+  "Karthi.dr": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "Mohammed Ammar": {
+   "proofread": "20",
+   "validate": "1"
+  },
+  "Muthulakshmi kaniyam": {
+   "proofread": "99",
+   "validate": "0"
+  },
+  "Muthuveyil": {
+   "proofread": "55",
+   "validate": "0"
+  },
+  "Neechalkaran": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Paarkavi": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Parvathisri": {
+   "proofread": "15",
+   "validate": "0"
+  },
+  "Pavithra.A": {
+   "proofread": "17",
+   "validate": "0"
+  },
+  "RUPA MANGALA R": {
+   "proofread": "31",
+   "validate": "0"
+  },
+  "Rabiyathul": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Rajamoorthy nangur": {
+   "proofread": "1",
+   "validate": "0"
+  },
+  "Sasi kaniyam": {
+   "proofread": "174",
+   "validate": "0"
+  },
+  "Sgvijayakumar": {
+   "proofread": "0",
+   "validate": "2"
+  },
+  "Shanmugamp7": {
+   "proofread": "0",
+   "validate": "1"
+  },
+  "Shobia kaniyam": {
+   "proofread": "34",
+   "validate": "0"
+  },
+  "Sridhar G": {
+   "proofread": "3",
+   "validate": "1"
+  },
+  "Suma965 kaniyam": {
+   "proofread": "24",
+   "validate": "6"
+  },
+  "TNSE Mahalingam VNR": {
+   "proofread": "19",
+   "validate": "0"
+  },
+  "TVA ARUN": {
+   "proofread": "91",
+   "validate": "18"
+  },
+  "Thamizhpparithi Maari": {
+   "proofread": "5",
+   "validate": "0"
+  },
+  "The employee kaniyam": {
+   "proofread": "278",
+   "validate": "143"
+  },
+  "Thilaka Balu": {
+   "proofread": "2",
+   "validate": "0"
+  },
+  "Varnika kannan": {
+   "proofread": "4",
+   "validate": "0"
+  },
+  "Vasantha Lakshmi V": {
+   "proofread": "41",
+   "validate": "0"
+  },
+  "Vishnupriyaprema": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Vkalaivani": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "அபிராமி நாராயணன்": {
+   "proofread": "35",
+   "validate": "0"
+  },
+  "காந்திமதி": {
+   "proofread": "10",
+   "validate": "0"
+  },
+  "கி.மூர்த்தி": {
+   "proofread": "3",
+   "validate": "151"
+  },
+  "தமிழ்க்குரிசில்": {
+   "proofread": "10",
+   "validate": "0"
+  },
+  "பா.தென்றல்": {
+   "proofread": "2",
+   "validate": "0"
+  }
+ },
+ "te": {
+  "Arjunaraoc": {
+   "proofread": "10",
+   "validate": "0"
+  },
+  "Gokulellanki": {
+   "proofread": "4",
+   "validate": "0"
+  },
+  "Mekala Harika": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Nrgullapalli": {
+   "proofread": "0",
+   "validate": "1"
+  },
+  "Pavan santhosh.s": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Rajasekhar1961": {
+   "proofread": "20",
+   "validate": "0"
+  },
+  "Ramesam54": {
+   "proofread": "28",
+   "validate": "45"
+  },
+  "Soorya Hebbar": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "Vinod247": {
+   "proofread": "11",
+   "validate": "0"
+  },
+  "రవిచంద్ర": {
+   "proofread": "38",
+   "validate": "0"
+  },
+  "రహ్మానుద్దీన్": {
+   "proofread": "0",
+   "validate": "0"
+  },
+  "శ్రీరామమూర్తి": {
+   "proofread": "0",
+   "validate": "0"
+  }
+ }
+}
