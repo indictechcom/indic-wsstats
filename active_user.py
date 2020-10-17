@@ -72,6 +72,5 @@ for domain in domains:
 
         statsUser[domain] = activity
 
-jsonFile = open( "ActiveUserStats/" + time + ".json", "w+")
-jsonFile.write(json.dumps(statsUser, ensure_ascii=False, sort_keys=True, indent= True))
-jsonFile.close()
+with open( "ActiveUserStats/" + time + ".json", "w") as f:
+    json.dump( f, statsUser, ensure_ascii=False, sort_keys=True, indent= True)
