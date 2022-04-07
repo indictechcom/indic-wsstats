@@ -12,9 +12,8 @@ def doCatQueery(category, namespace):
 def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4, num_main_allpages, main_withscan,
                main_withoutscan, main_apg, page_aps):
 
-        jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
-        data = json.load(jsonFile)  # Read the JSON into the buffer
-        jsonFile.close()  # Close the JSON file
+        with open("Stats.json", "r") as f:  # Open the JSON file for reading
+                data = json.load(f)         # Read the JSON into the buffer
 
         ## Working with buffered content
         data[domain]["Num_of_pages"] = num_allpages
@@ -112,12 +111,10 @@ for domain in domains:
         conn.close ()
 
 # timestamp
-jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
-data = json.load(jsonFile)  # Read the JSON into the buffer
-jsonFile.close()  # Close the JSON file
+with open("Stats.json", "r") as f: # Open the JSON file for reading
+        data = json.load(f)        # Read the JSON into the buffer
 
 data["timestamp"] = datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M%p")
 
-jsonFile = open("Stats.json", "w+")
-jsonFile.write(json.dumps(data, sort_keys=True, indent= True))
-jsonFile.close()
+with open("Stats.json", "w") as f:
+        json.dump( f, data, sort_keys=True, indent= True)
