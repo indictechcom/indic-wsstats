@@ -143,7 +143,7 @@ $(function () {
             // If request fails then put error message
             var error = $("<div>").addClass("alert alert-danger").html(
                 "<strong>Error!</strong> There is something wrong happen. Please write message to " +
-                "<a href=\"https://meta.wikimedia.org/wiki/User:Jayprakash12345\">Jay Prakash</a>."
+                "<a href=\"https://meta.wikimedia.org/wiki/Indic-TechCom/Requests\">Indic-TechCom/Requests</a>."
             );
             $("#graph-charts").empty().append(error);
         });
