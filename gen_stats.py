@@ -29,9 +29,8 @@ def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4, n
         data[domain]["Page_APS"] = page_aps
 
         # Save our changes to JSON file
-        jsonFile = open("Stats.json", "w+")
-        jsonFile.write(json.dumps(data, indent= True))
-        jsonFile.close()
+        with open("Stats.json", "w+") as f:
+                json.dump( f, data, indent= True)
 
 for domain in domains:
         dbname = domain + 'wikisource_p'
