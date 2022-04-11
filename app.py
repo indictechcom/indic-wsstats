@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import json
-from flask import Flask, render_template, url_for, jsonify, request
+from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 from config import domains
 from flask_bootstrap import Bootstrap
