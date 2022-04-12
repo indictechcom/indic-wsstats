@@ -24,11 +24,11 @@ def index():
 def wikitable():
 
     jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
-    Jsondata = json.load( jsonFile )  # Read the JSON into the buffer
+    jsonData = json.load( jsonFile )  # Read the JSON into the buffer
     jsonFile.close()  # Close the JSON file
 
-    Wikitable = "Statistics on "+ Jsondata[ 'timestamp']
-    Wikitable += """
+    wikiTable = "Statistics on "+ jsonData[ 'timestamp']
+    wikiTable += """
 {|class="wikitable sortable"
 |-
 ! colspan="7" style="text-align:center;background: #ffffff;" | Page namespace
@@ -46,40 +46,40 @@ def wikitable():
 !style="background: #ffa0a0;"|'''Without scans'''
 !style="background: #ffffff;"|'''%'''"""
 
-    Jsondata.pop('timestamp', None)
+    jsonData.pop('timestamp', None)
 
     # Sorting
-    Jsondata = json.dumps(Jsondata, sort_keys=True)
-    Jsondata = json.loads( Jsondata )
+    jsonData = json.dumps(jsonData, sort_keys=True)
+    jsonData = json.loads( jsonData )
 
     for domain in domains:
 
-        Wikitable += """\n|-
+        wikiTable += """\n|-
 |%s || %d || %d || %d || %d || %d || %d || %d || %d || %d || %.2f""" % (
             domain,
-            Jsondata[domain]['Num_of_pages'],
-            Jsondata[domain]['Without_text'],
-            Jsondata[domain]['Not_proofread'],
-            Jsondata[domain]['Problematic'],
-            Jsondata[domain]['Proofread'],
-            Jsondata[domain]['Validated'],
-            Jsondata[domain]['Main_Pages'],
-            Jsondata[domain]['Main_WithScan'],
-            Jsondata[domain]['Main_WithOutScan'],
-            100 * Jsondata[domain]["Main_WithScan"] / (Jsondata[domain]["Main_WithScan"] + Jsondata[domain]["Main_WithOutScan"])
+            jsonData[domain]['Num_of_pages'],
+            jsonData[domain]['Without_text'],
+            jsonData[domain]['Not_proofread'],
+            jsonData[domain]['Problematic'],
+            jsonData[domain]['Proofread'],
+            jsonData[domain]['Validated'],
+            jsonData[domain]['Main_Pages'],
+            jsonData[domain]['Main_WithScan'],
+            jsonData[domain]['Main_WithOutScan'],
+            100 * jsonData[domain]["Main_WithScan"] / (jsonData[domain]["Main_WithScan"] + jsonData[domain]["Main_WithOutScan"])
         )
 
-    Wikitable +="\n|}"
-    return render_template('wikitable.html', Wikitable= Wikitable)
+    wikiTable +="\n|}"
+    return render_template('wikitable.html', Wikitable= wikiTable)
 
 # API
 @app.route('/api/stats')
 def statsAPI():
     jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
-    Jsondata = json.load( jsonFile )  # Read the JSON into the buffer
+    jsonData = json.load( jsonFile )  # Read the JSON into the buffer
     jsonFile.close()  # Close the JSON file
 
-    return jsonify( Jsondata )
+    return jsonify( jsonData )
 
 
 @app.route('/graph')
@@ -88,25 +88,25 @@ def graph():
 
 @app.route('/activeuser')
 def activeuser():
-    ws_project = request.args.get('project', None)
-    ws_month = request.args.get('month', None)
+    wsProject = request.args.get('project', None)
+    wsMonth = request.args.get('month', None)
     data = None
     total = {
         "proofread": 0,
         "validate": 0
     }
-    if ws_month is not None:
-        jsonFile = open("ActiveUserStats/" + ws_month + ".json", "r")
+    if wsMonth is not None:
+        jsonFile = open("ActiveUserStats/" + wsMonth + ".json", "r")
         data = json.load( jsonFile )
         jsonFile.close()
-        data = data[ws_project]
+        data = data[wsProject]
 
         # Count the total
         for count in data.values():
             total["proofread"] = total["proofread"] + int(count["proofread"])
             total["validate"] = total["validate"] + int(count["validate"])
 
-    return render_template('activeuser.html', data= data, project=ws_project, total=total)
+    return render_template('activeuser.html', data= data, project=wsProject, total=total)
 
 if __name__ == '__main__':
     app.run()
