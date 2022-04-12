@@ -6,7 +6,7 @@ from flask_cors import CORS
 from config import domains
 from flask_bootstrap import Bootstrap
 
-version = "2.0"
+__version__ = "2.0"
 
 app = Flask(__name__)
 CORS(app)
