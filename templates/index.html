@@ -48,33 +48,33 @@
 {% endblock head %}
 
 {% block main %}
-    <p> Statistics on <b> {{ data["timestamp"] }} </b> </p>
+    <p> {{ _('stats') }} <b> {{ data["timestamp"] }} </b> </p>
     <table id="statsTable" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th colspan="7" style="text-align:center">Page namespace</th>
-            <th colspan="4" style="text-align:center">Main namespace</th>
+            <th colspan="7" style="text-align:center">{{ _('page-ns') }}</th>
+            <th colspan="4" style="text-align:center">{{ _('main-ns') }}</th>
         </tr>
         <tr>
-            <th class="th-sm">Language
+            <th class="th-sm">{{ _('lang') }}
             </th>
-            <th class="th-sm">All pages
+            <th class="th-sm">{{ _('all-pgs') }}
             </th>
-            <th class="th-sm quality0">Without text
+            <th class="th-sm quality0">{{ _('no-text') }}
             </th>
-            <th class="th-sm quality1">Not proofread
+            <th class="th-sm quality1">{{ _('not-proofread') }}
             </th>
-            <th class="th-sm quality2">Problematic
+            <th class="th-sm quality2">{{ _('problem') }}
             </th>
-            <th class="th-sm quality3">Proofread
+            <th class="th-sm quality3">{{ _('proofread') }}
             </th>
-            <th class="th-sm quality4">Validated
+            <th class="th-sm quality4">{{ _('valid') }}
             </th>
-            <th class="th-sm">All pages
+            <th class="th-sm">{{ _('all-pgs') }}
             </th>
-            <th class="th-sm withscans">With scans
+            <th class="th-sm withscans">{{ _('scan') }}
             </th>
-            <th class="th-sm naked">Without scans
+            <th class="th-sm naked">{{ _('no-scan') }}
             </th>
             <th class="th-sm">%
             </th>
@@ -101,7 +101,7 @@
         </tbody>
     </table>
     <br>
-    <button type="submit" class="btn btn-primary" onclick="window.location.href='{{ url_for("wikitable") }}'">Get
-        Wikitable
+    <button type="submit" class="btn btn-primary" onclick="window.location.href='{{ url_for("wikitable") }}'">
+    {{ _('wiki-tab') }}
     </button>
 {% endblock %}

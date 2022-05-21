@@ -6,14 +6,14 @@
 {% endblock head %}
 
 {% block main %}
-    <label for="outputText">Wikitable</label>
+    <label for="outputText">{{ _('tab') }}</label>
     <textarea id="outputText" name="outputText" rows="20" style="min-width: 100%">{{ Wikitable }}</textarea>
     <br>
     <br>
     <div>
         <button id="copy-button" class="btn btn-primary">
-            Copy the clipbord
+            {{ _('copy-clip') }}
         </button>
-        <button class="btn btn-warning" onclick="window.location.href='{{ url_for("index") }}'">Back</button>
+        <button class="btn btn-warning" onclick="window.location.href='{{ url_for("index") }}'">{{ _('back') }}</button>
     </div>
 {% endblock main %}

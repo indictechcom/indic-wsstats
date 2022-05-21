@@ -113,7 +113,8 @@ for domain in domains:
 with open("Stats.json", "r") as f: # Open the JSON file for reading
         data = json.load(f)        # Read the JSON into the buffer
 
-data["timestamp"] = datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M%p")
+# data["timestamp"] = datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M%p")
+# data["timestamp"] = 'Hello world'
 
 with open("Stats.json", "w") as f:
         json.dump( f, data, sort_keys=True, indent= True)

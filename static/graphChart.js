@@ -115,27 +115,27 @@ $(function () {
 
             var main_apg = $("#bar-main-aps");
             var page_aps = $("#bar-page-aps");
+            
+            // // Create the average page size chart
+            // CreateBar(main_apg, CreateDataSet(domains, Main_APG, ""), CreateOptions('uttfytffuf'));
+            // CreateBar(page_aps, CreateDataSet(domains, Page_APS, ""), CreateOptions(_('page-ns-opts')));
 
-            // Create the average page size chart
-            CreateBar(main_apg, CreateDataSet(domains, Main_APG, "Bytes"), CreateOptions("Main Namespace (In bytes)"));
-            CreateBar(page_aps, CreateDataSet(domains, Page_APS, "Bytes"), CreateOptions("Page Namespace (In bytes)"));
+            // // Create the percentage chart
+            // CreateBar(proofreadper, CreateDataSet(domains, proofreadPercentage, ""), CreateOptions(_('proofread') + " %"));
+            // CreateBar(transcludedper, CreateDataSet(domains, transcludedPercentage, ""), CreateOptions(_('transclude') + " %"));
 
-            // Create the percentage chart
-            CreateBar(proofreadper, CreateDataSet(domains, proofreadPercentage, ""), CreateOptions("Proofread %"));
-            CreateBar(transcludedper, CreateDataSet(domains, transcludedPercentage, ""), CreateOptions("Transcluded %"));
+            // // Create the page namespace chart
+            // CreateBar(pagenamespace, CreateDataSet(domains, PageNamescpacePages, ""), CreateOptions(_('tot-pages')));
+            // CreateBar(withouttext, CreateDataSet(domains, Without_text, ""), CreateOptions(_('no-text')));
+            // CreateBar(notproofread, CreateDataSet(domains, NotProofread, ""), CreateOptions(_('not-proofread')));
+            // CreateBar(problematic, CreateDataSet(domains, Problematic, ""), CreateOptions(_('problem')));
+            // CreateBar(proofread, CreateDataSet(domains, Proofread, ""), CreateOptions(_('proofread-pgs')));
+            // CreateBar(validated, CreateDataSet(domains, Validated, ""), CreateOptions(_('valid')));
 
-            // Create the page namespace chart
-            CreateBar(pagenamespace, CreateDataSet(domains, PageNamescpacePages, ""), CreateOptions("Total Pages"));
-            CreateBar(withouttext, CreateDataSet(domains, Without_text, ""), CreateOptions("Without text"));
-            CreateBar(notproofread, CreateDataSet(domains, NotProofread, ""), CreateOptions("Not proofread"));
-            CreateBar(problematic, CreateDataSet(domains, Problematic, ""), CreateOptions("Problematic"));
-            CreateBar(proofread, CreateDataSet(domains, Proofread, ""), CreateOptions("Proofread Pages"));
-            CreateBar(validated, CreateDataSet(domains, Validated, ""), CreateOptions("Validated"));
-
-            // Create the main namespace chart
-            CreateBar(mainpage, CreateDataSet(domains, Main_Pages), CreateOptions("Total Pages"));
-            CreateBar(withscan, CreateDataSet(domains, With_scans), CreateOptions("With scans"));
-            CreateBar(withoutscan, CreateDataSet(domains, Without_scans), CreateOptions("Without scans"));
+            // // Create the main namespace chart
+            // CreateBar(mainpage, CreateDataSet(domains, Main_Pages), CreateOptions(_('tot-pages')));
+            // CreateBar(withscan, CreateDataSet(domains, With_scans), CreateOptions(_('scan')));
+            // CreateBar(withoutscan, CreateDataSet(domains, Without_scans), CreateOptions(_('no-scan')));
 
         })
         .fail(function () {
