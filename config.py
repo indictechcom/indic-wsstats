@@ -26,7 +26,7 @@ siteData= {
                 "Not_proofread": "মুদ্ৰণ_সংশোধন_কৰা_হোৱা_নাই",
                 "Problematic": "সমস্যাজৰ্জৰ",
                 "Proofread": "মুদ্ৰণ_সংশোধন",
-                "Validated": "বৈধকৰণ"
+                "Validated": "বৈধকৰণ_হৈছে"
         }
     },
     "bn": {
@@ -61,10 +61,10 @@ siteData= {
                 "index": 252
         },
         "category": {
-                "Without_text": "लेख_के_बिना",
-                "Not_proofread": "परिक्षण_हुआ_नहीं",
+                "Without_text": "रिक्त",
+                "Not_proofread": "अशोधित",
                 "Problematic": "समस्याकारक",
-                "Proofread": "परिक्षण_करें",
+                "Proofread": "शोधित",
                 "Validated": "प्रमाणित"
         }
     },
@@ -152,7 +152,7 @@ siteData= {
                 "index": 252
         },
         "category": {
-                "Without_text": "உரை_இல்லாமல்",
+                "Without_text": "மேம்பாடு_தேவை",
                 "Not_proofread": "மெய்ப்பு_பார்க்கப்படாதவை",
                 "Problematic": "சிக்கலானவை",
                 "Proofread": "மெய்ப்புப்_பார்க்கப்பட்டவை",
