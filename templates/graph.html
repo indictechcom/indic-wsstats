@@ -44,43 +44,43 @@
 {% block main %}
     <div id="graph-charts">
         <div id="averagepagesize">
-            <h2>By Average Page Size</h2>
-            <h3>Main namespace</h3>
+            <h2>{{ _('avg-pg-sz') }}</h2>
+            <h3>{{ _('main-ns') }}</h3>
             <canvas id="bar-main-aps" class="shadow p-3 mb-5 bg-white rounded"></canvas>
-            <h3>Page namespace</h3>
+            <h3>{{ _('page-ns') }}</h3>
             <canvas id="bar-page-aps" class="shadow p-3 mb-5 bg-white rounded"></canvas>
         </div>
         <div id="percentage">
-            <h2>By Percentage</h2>
-            <h3>Proofread</h3>
+            <h2>{{ _('perc') }}</h2>
+            <h3>{{ _('proofread') }}</h3>
             <canvas id="bar-proofreadper" class="shadow p-3 mb-5 bg-white rounded"></canvas>
-            <h3>Transcluded</h3>
+            <h3>{{ _('transclude') }}</h3>
             <canvas id="bar-transcludedper" class="shadow p-3 mb-5 bg-white rounded"></canvas>
         </div>
         <br><br>
         <div id="pagenamespace">
-            <h2>By Page namespace</h2>
-            <h3>All pages</h3>
+            <h2>{{ _('by-page-ns') }}</h2>
+            <h3>{{ _('all-pgs') }}</h3>
             <canvas id="bar-pagenamespace" class="shadow p-3 mb-5 bg-white rounded"></canvas>
-            <h3>Without text</h3>
+            <h3>{{ _('no-text') }}</h3>
             <canvas id="bar-withouttext" class="shadow p-3 mb-5 bg-white rounded"></canvas>
-            <h3>Not proofread</h3>
+            <h3>{{ _('not-proofread') }}</h3>
             <canvas id="bar-notproofread" class="shadow p-3 mb-5 bg-white rounded"></canvas>
-            <h3>Problematic</h3>
+            <h3>{{ _('problem') }}</h3>
             <canvas id="bar-problematic" class="shadow p-3 mb-5 bg-white rounded"></canvas>
-            <h3>Proofread Pages</h3>
+            <h3>{{ _('proofread-pgs') }}</h3>
             <canvas id="bar-proofread" class="shadow p-3 mb-5 bg-white rounded"></canvas>
-            <h3>Validated</h3>
+            <h3>{{ _('valid') }}</h3>
             <canvas id="bar-validated" class="shadow p-3 mb-5 bg-white rounded"></canvas>
         </div>
         <br><br>
         <div id="mainnamespace">
-            <h2>By Main namespace</h2>
-            <h3>All pages</h3>
+            <h2>{{ _('by-main-ns') }}</h2>
+            <h3>{{ _('all-pgs') }}</h3>
             <canvas id="bar-mainpage" class="shadow p-3 mb-5 bg-white rounded"></canvas>
-            <h3>With scans</h3>
+            <h3>{{ _('scan') }}</h3>
             <canvas id="bar-withscan" class="shadow p-3 mb-5 bg-white rounded"></canvas>
-            <h3>Without scans</h3>
+            <h3>{{ _('no-scan') }}</h3>
             <canvas id="bar-withoutscan" class="shadow p-3 mb-5 bg-white rounded"></canvas>
         </div>
     </div>

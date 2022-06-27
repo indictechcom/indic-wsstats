@@ -32,50 +32,50 @@
 {% endblock head %}
 {% block main %}
     <div class="alert alert-info" role="alert">
-        This feature are in development. Don't use it as reliable source.
+        {{ _('feature-warn') }}
     </div>
     {% if data is none %}
         <div class="shadow-effect">
             <form id="form-content" method="get" action="{{ url_for('activeuser') }}">
                 <div class="form-group">
-                    <label for="project">Project:</label>
+                    <label for="project">{{ _('proj-name') }}:</label>
                     <select class="form-control" id="project" name="project">
-                        <option value="as">Assamese</option>
-                        <option value="bn">Bangla</option>
-                        <option value="gu">Gujarati</option>
-                        <option value="hi">Hindi</option>
-                        <option value="kn">Kannada</option>
-                        <option value="ml">Malayalam</option>
-                        <option value="mr">Marathi</option>
-                        <option value="or">Oriya</option>
-                        <option value="pa">Punjabi</option>
-                        <option value="sa">Sanskrit</option>
-                        <option value="ta">Tamil</option>
-                        <option value="te">Telugu</option>
+                        <option value="as">{{ _('lang-as') }}</option>
+                        <option value="bn">{{ _('lang-bn') }}</option>
+                        <option value="gu">{{ _('lang-gu') }}</option>
+                        <option value="hi">{{ _('lang-hi') }}</option>
+                        <option value="kn">{{ _('lang-kn') }}</option>
+                        <option value="ml">{{ _('lang-ml') }}</option>
+                        <option value="mr">{{ _('lang-mr') }}</option>
+                        <option value="or">{{ _('lang-or') }}</option>
+                        <option value="pa">{{ _('lang-pa') }}</option>
+                        <option value="sa">{{ _('lang-sa') }}</option>
+                        <option value="ta">{{ _('lang-ta') }}</option>
+                        <option value="te">{{ _('lang-te') }}</option>
                     </select>
                 </div>
                 <div class="form-group" style="position: relative">
-                    <label for="datepick">Month <small><small>(YYYYMM)</small></small>:</label>
+                    <label for="datepick">{{ _('month-name') }} <small><small>({{ _('date-format') }})</small></small>:</label>
                     <input class="form-control" id="datepick" name="month" type="text">
                 </div>
-                <button type="submit" class="btn btn-primary subBtn">Submit</button>
+                <button type="submit" class="btn btn-primary subBtn">{{ _('submit') }}</button>
             </form>
         </div>
     {% elif data is not none %}
         <a href="{{ url_for('activeuser') }}" style="font-size:1.4em;">
-            <i class="fa fa-arrow-left"></i> Back
+            <i class="fa fa-arrow-left"></i> {{ _('back') }}
         </a>
         <br>
         <br>
-        <p>List and activity of users who worked in Page Namespace.</p>
+        <p>{{ _('data-not-none') }}</p>
         <table id="statsTable"class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
             <thead> 
             <tr>
-                <th class="th-sm">User
+                <th class="th-sm">{{ _('user') }}
                 </th>
-                <th class="th-sm">Proofreads
+                <th class="th-sm">{{ _('proofread') }}s
                 </th>
-                <th class="th-sm">Validations
+                <th class="th-sm">{{ _('validations') }}
                 </th>
             </tr>
             </thead>
@@ -90,7 +90,7 @@
             </tbody>
             <tbody>
                 <tr>
-                    <td><p style="font-weight: bold;"> Total </p></td>
+                    <td><p style="font-weight: bold;"> {{ _('tot') }} </p></td>
                     <td><p style="font-weight: bold;">{{ total["proofread"] }}</p></td>
                     <td><p style="font-weight: bold;">{{ total["validate"] }}</p></td>
                 </tr>

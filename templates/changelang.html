@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> {{ _('indic-wsstats-title') }} </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/BookReader-favicon.svg/48px-BookReader-favicon.svg.png">
+
+    <link href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container col-lg-6 p-3 bg-white shadow rounded">
+        <h2 class="text-center">{{ _('my-language') }}</h2>
+        <form action="{{ url_for('changelang') }}" method="POST">
+            <div class="form-group" style="width: 100%;">
+                <select class="form-control" name="locale" id="locale">
+                    {% for l in locales %}
+                    <option {% if permanent_locale == l %}selected{% endif %} value="{{l}}">{{l}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <br>
+            <button class="btn btn-outline-secondary" type="submit">{{ _('button-save') }}</button>
+            <a class="btn btn-outline-danger" href="{{ url_for('index') }}">{{ _('button-cancel') }}</a>
+        </form>
+    </div>
+</body>
+</html>

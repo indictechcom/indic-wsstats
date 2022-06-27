@@ -3,3 +3,5 @@ toolforge
 flask_cors
 pywikisource
 flask-bootstrap
+requests
+flask-jsonlocale
