@@ -31,9 +31,6 @@
     </style>
 {% endblock head %}
 {% block main %}
-    <div class="alert alert-info" role="alert">
-        This feature are in development. Don't use it as reliable source.
-    </div>
     {% if data is none %}
         <div class="shadow-effect">
             <form id="form-content" method="get" action="{{ url_for('activeuser') }}">
