@@ -4,13 +4,11 @@ import json
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 from config import domains
-from flask_bootstrap import Bootstrap
 
 __version__ = "2.0"
 
 app = Flask(__name__)
 CORS(app)
-Bootstrap(app)
 
 @app.route('/')
 def index():
