@@ -4,7 +4,7 @@ $(function () {
     $.ajax({
         type: "GET",
         dataType: 'json',
-        url: "https://tools.wmflabs.org/indic-wsstats/api/stats",
+        url: "https://indic-wsstats.toolforge.org/api/stats",
         crossDomain: true
     })
         .done(function (data) {
