@@ -2,4 +2,3 @@ flask
 toolforge
 flask_cors
 pywikisource
-flask-bootstrap
