@@ -1,7 +1,7 @@
 Indic Wikisource Stats
 =======================
 
-* Production tool: https://tools.wmflabs.org/indic-wsstats/
+* Production tool: https://indic-wsstats.toolforge.org/
 * Issue tracker: https://phabricator.wikimedia.org/tag/indic-techcom/
 * Discussion: [https://meta.wikimedia.org/wiki/Talk:Indic-TechCom/Tools/Indic_Wikisource_Stats](https://meta.wikimedia.org/wiki/Talk:Indic-TechCom/Tools/Indic_Wikisource_Stats)
 
