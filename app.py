@@ -12,18 +12,15 @@ CORS(app)
 
 @app.route('/')
 def index():
-    jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
-    data = json.load(jsonFile)  # Read the JSON into the buffer
-    jsonFile.close()  # Close the JSON file
+    with open ("Stats.json","r") as st:
+        jsonFile = st.read()
 
     return render_template('index.html', domains= domains, data= data)
 
 @app.route('/wikitable')
 def wikitable():
-
-    jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
-    jsonData = json.load( jsonFile )  # Read the JSON into the buffer
-    jsonFile.close()  # Close the JSON file
+    with open ("Stats.json","r") as st:
+        jsonData = st.read()
 
     wikiTable = "Statistics on "+ jsonData[ 'timestamp']
     wikiTable += """
@@ -73,10 +70,9 @@ def wikitable():
 # API
 @app.route('/api/stats')
 def statsAPI():
-    jsonFile = open("Stats.json", "r")  # Open the JSON file for reading
-    jsonData = json.load( jsonFile )  # Read the JSON into the buffer
-    jsonFile.close()  # Close the JSON file
-
+    with open ("Stats.json","r") as st:
+        jsonData = st.read()
+        
     return jsonify( jsonData )
 
 
