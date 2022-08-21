@@ -14,7 +14,7 @@ CORS(app)
 def index():
     with open ("Stats.json","r") as st:
         data = json.load(st)  # Open the JSON file for reading
-
+      
     return render_template('index.html', domains= domains, data= data)
 
 @app.route('/wikitable')
@@ -22,7 +22,7 @@ def wikitable():
 
     with open ("Stats.json","r") as st:
         jsonData = json.load(st) # Open the JSON file for reading
-        
+
     wikiTable = "Statistics on "+ jsonData[ 'timestamp']
     wikiTable += """
 {|class="wikitable sortable"
