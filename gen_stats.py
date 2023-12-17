@@ -78,7 +78,7 @@ for domain in domains:
         num_main_allpages = int(row[0])
 
         # Get main namespace's with scan
-        main_withscan = "select count(distinct tl_from) as num from templatelinks left join page on page_id=tl_from where tl_namespace=%d and page_namespace=0;"%pageNsCode
+        main_withscan = "select count(distinct tl_from) as num from templatelinks left join page on page_id=tl_from where tl_from_namespace=%d and page_namespace=0;"%pageNsCode
         cur.execute( main_withscan )
         row = cur.fetchone()
         main_withscan = int(row[0])
