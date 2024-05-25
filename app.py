@@ -109,7 +109,7 @@ def activeuser():
 
 @app.route('/logs')
 def logs():
-    with open("job.log", "r") as f:
+    with open("jobs.log", "r") as f:
         logList = f.readlines()
     if logList == []:
         return render_template('logs.html', logExists = False, logs = [])
