@@ -86,22 +86,27 @@ def activeuser():
     wsProject = request.args.get('project', None)
     wsMonth = request.args.get('month', None)
     data = None
+    fileExists = True
     total = {
         "proofread": 0,
         "validate": 0
     }
     if wsMonth is not None:
-        jsonFile = open("ActiveUserStats/" + wsMonth + ".json", "r")
-        data = json.load( jsonFile )
-        jsonFile.close()
-        data = data[wsProject]
+        try:
+            jsonFile = open("ActiveUserStats/" + wsMonth + ".json", "r")
+            data = json.load( jsonFile )
+            jsonFile.close()
+            data = data[wsProject]
 
-        # Count the total
-        for count in data.values():
-            total["proofread"] = total["proofread"] + int(count["proofread"])
-            total["validate"] = total["validate"] + int(count["validate"])
-
-    return render_template('activeuser.html', data= data, project=wsProject, total=total)
+            # Count the total
+            for count in data.values():
+                total["proofread"] = total["proofread"] + int(count["proofread"])
+                total["validate"] = total["validate"] + int(count["validate"])
+            return render_template('activeuser.html', data= data, project=wsProject, total=total, fileExists=True)
+        except FileNotFoundError:
+            return render_template('activeuser.html', data= "invalid", project=wsProject, total=total, fileExists=False)
+    return render_template('activeuser.html', data= data, project=wsProject, total=total, fileExists=True)
 
 if __name__ == '__main__':
     app.run()
+
