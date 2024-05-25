@@ -107,6 +107,15 @@ def activeuser():
             return render_template('activeuser.html', data= "invalid", project=wsProject, total=total, fileExists=False)
     return render_template('activeuser.html', data= data, project=wsProject, total=total, fileExists=True)
 
+@app.route('/logs')
+def logs():
+    with open("job.log", "r") as f:
+        logList = f.readlines()
+    if logList == []:
+        return render_template('logs.html', logExists = False, logs = [])
+    else:
+        return render_template('logs.html',logExists = True, logs = logList)
+
 if __name__ == '__main__':
     app.run()
 

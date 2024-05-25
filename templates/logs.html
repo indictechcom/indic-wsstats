@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+{% if logExists %}
+    <h3><p><b> Job Logs: </b></p></h3>
+    <hr>
+    <div id="" style="overflow:scroll; height:600px;">
+        
+        {% for log in logs %}
+            <p>{{log}}</p>
+        {% endfor %}
+    </div>
+{% elif logExists is false%}
+    <div>
+        <p><b>No logs exist as of now.</b></p>
+{% endif %}
+{% endblock main %}
