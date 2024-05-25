@@ -73,4 +73,4 @@ for domain in domains:
         statsUser[domain] = activity
 
 with open( "ActiveUserStats/" + time + ".json", "w") as f:
-    json.dump( f, statsUser, ensure_ascii=False, sort_keys=True, indent= True)
+    json.dump( statsUser, f, ensure_ascii=False, sort_keys=True, indent= True)

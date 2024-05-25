@@ -30,7 +30,7 @@ def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4, n
 
         # Save our changes to JSON file
         with open("Stats.json", "w+") as f:
-                json.dump( f, data, indent= True)
+                json.dump( data, f, indent= True)
 
 for domain in domains:
         dbname = domain + 'wikisource_p'
@@ -116,4 +116,4 @@ with open("Stats.json", "r") as f: # Open the JSON file for reading
 data["timestamp"] = datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M%p")
 
 with open("Stats.json", "w") as f:
-        json.dump( f, data, sort_keys=True, indent= True)
+        json.dump( data, f, sort_keys=True, indent= True)
