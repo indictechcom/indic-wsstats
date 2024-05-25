@@ -31,7 +31,71 @@
     </style>
 {% endblock head %}
 {% block main %}
-    {% if data is none %}
+
+        {% if data is none %}
+            <div class="shadow-effect">
+                <form id="form-content" method="get" action="{{ url_for('activeuser') }}">
+                    <div class="form-group">
+                        <label for="project">Project:</label>
+                        <select class="form-control" id="project" name="project">
+                            <option value="as">Assamese</option>
+                            <option value="bn">Bangla</option>
+                            <option value="gu">Gujarati</option>
+                            <option value="hi">Hindi</option>
+                            <option value="kn">Kannada</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="mr">Marathi</option>
+                            <option value="or">Oriya</option>
+                            <option value="pa">Punjabi</option>
+                            <option value="sa">Sanskrit</option>
+                            <option value="ta">Tamil</option>
+                            <option value="te">Telugu</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="position: relative">
+                        <label for="datepick">Month <small><small>(YYYYMM)</small></small>:</label>
+                        <input class="form-control" id="datepick" name="month" type="text">
+                    </div>
+                    <button type="submit" class="btn btn-primary subBtn">Submit</button>
+                </form>
+            </div>
+        {% elif data is not none and fileExists %}
+            <a href="{{ url_for('activeuser') }}" style="font-size:1.4em;">
+                <i class="fa fa-arrow-left"></i> Back
+            </a>
+            <br>
+            <br>
+            <p>List and activity of users who worked in Page Namespace.</p>
+            <table id="statsTable"class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+                <thead> 
+                <tr>
+                    <th class="th-sm">User
+                    </th>
+                    <th class="th-sm">Proofreads
+                    </th>
+                    <th class="th-sm">Validations
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for user in data %}
+                        <tr>
+                            <td><a target="_blank" href="https://{{project}}.wikisource.org/wiki/User:{{user}}">{{user}}</a></td>
+                            <td>{{ data[user]["proofread"] }}</td>
+                            <td>{{ data[user]["validate"] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td><p style="font-weight: bold;"> Total </p></td>
+                        <td><p style="font-weight: bold;">{{ total["proofread"] }}</p></td>
+                        <td><p style="font-weight: bold;">{{ total["validate"] }}</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+        {% elif fileExists is false  and data == "invalid" %}
         <div class="shadow-effect">
             <form id="form-content" method="get" action="{{ url_for('activeuser') }}">
                 <div class="form-group">
@@ -58,41 +122,7 @@
                 <button type="submit" class="btn btn-primary subBtn">Submit</button>
             </form>
         </div>
-    {% elif data is not none %}
-        <a href="{{ url_for('activeuser') }}" style="font-size:1.4em;">
-            <i class="fa fa-arrow-left"></i> Back
-        </a>
-        <br>
-        <br>
-        <p>List and activity of users who worked in Page Namespace.</p>
-        <table id="statsTable"class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
-            <thead> 
-            <tr>
-                <th class="th-sm">User
-                </th>
-                <th class="th-sm">Proofreads
-                </th>
-                <th class="th-sm">Validations
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-                {% for user in data %}
-                    <tr>
-                        <td><a target="_blank" href="https://{{project}}.wikisource.org/wiki/User:{{user}}">{{user}}</a></td>
-                        <td>{{ data[user]["proofread"] }}</td>
-                        <td>{{ data[user]["validate"] }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-            <tbody>
-                <tr>
-                    <td><p style="font-weight: bold;"> Total </p></td>
-                    <td><p style="font-weight: bold;">{{ total["proofread"] }}</p></td>
-                    <td><p style="font-weight: bold;">{{ total["validate"] }}</p></td>
-                </tr>
-            </tbody>
-        </table>
-    {% endif %}
+            <p> No active users in this month !!</p>
+    {%endif%}
 
 {% endblock main  %}
