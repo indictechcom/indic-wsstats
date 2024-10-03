@@ -11,12 +11,12 @@
         <link rel="stylesheet"
               href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet"
-              href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap.min.css">
+              href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css">
 
         <!-- Bootstrap, jQuery and others JS -->
-        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.6.0/jquery.js"></script>
-        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.19/js/dataTables.bootstrap.min.js"></script>
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.7.1/jquery.js"></script>
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+        <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap.min.js"></script>
         <script src="https://tools-static.wmflabs.org/cdnjs/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <style>
@@ -30,28 +30,28 @@
     {% endblock head %}
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-
-            </button>
-            <a href="{{ url_for('index') }}" class="navbar-brand">WikisourceStats</a>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+    
+                </button>
+                <a href="{{ url_for('index') }}" class="navbar-brand">WikisourceStats</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('graph') }}">Graph</a></li>
+                    <li><a href="{{ url_for('activeuser') }}">Active Users</a></li>
+                    <li><a href="{{ url_for('logs') }}">Logs</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('graph') }}">Graph</a></li>
-                <li><a href="{{ url_for('activeuser') }}">Active Users</a></li>
-                <li><a href="{{ url_for('logs') }}">Logs</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    </nav>
 <div class="container">
     <div>
         <h1 class="page-header title-heading"> Indic Wikisource Statistic </h1>
