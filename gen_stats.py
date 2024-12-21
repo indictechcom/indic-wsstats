@@ -1,36 +1,45 @@
 # -*- coding: utf-8 -*-
 import toolforge
-import json
+# import json
 import datetime
 from config import domains, siteData
+from app import app
+from models import db, LanguageStats
+
 
 def doCatQueery(category, namespace):
     return "select count(cl_from) as number from categorylinks where cl_to='%s' and cl_from in (select page_id from page where page_namespace=%s)" % (
     category, namespace)
 
 
-def updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4, num_main_allpages, main_withscan,
-               main_withoutscan, main_apg, page_aps):
+def updateDatabase(domain, num_allpages, num_q0, num_q1, num_q2, num_q3q4, num_q4, num_main_allpages, main_withscan,
+               main_withoutscan, main_apg, page_aps, timestamp):
 
-        with open("Stats.json", "r") as f:  # Open the JSON file for reading
-                data = json.load(f)         # Read the JSON into the buffer
+        with app.app_context():  # Open the JSON file for reading
+                try:
+                language_stat = LanguageStats(
+                        language_code=domain,
+                        main_aps=main_apg,
+                        main_pages=num_main_allpages,
+                        main_with_out_scan=main_withoutscan,
+                        main_with_scan=main_withscan,
+                        not_proofread=num_q1,
+                        num_of_pages=num_allpages,
+                        page_aps=page_aps,
+                        problematic=num_q2,
+                        proofread=num_q3q4,
+                        validated=num_q4,
+                        without_text=num_q0,
+                        timestamp = timestamp
+                )
+                db.session.add(language_stat)
+                db.session.commit()
+            except Exception as e:
+                db.session.rollback()
+                print(f"Error updating database for domain {domain}: {e}")
 
-        ## Working with buffered content
-        data[domain]["Num_of_pages"] = num_allpages
-        data[domain]["Without_text"] = num_q0
-        data[domain]["Not_proofread"] = num_q1
-        data[domain]["Problematic"] = num_q2
-        data[domain]["Proofread"] = num_q3q4
-        data[domain]["Validated"] = num_q4
-        data[domain]["Main_Pages"] = num_main_allpages
-        data[domain]["Main_WithScan"] = main_withscan
-        data[domain]["Main_WithOutScan"] = main_withoutscan
-        data[domain]["Main_APS"] = main_apg
-        data[domain]["Page_APS"] = page_aps
-
-        # Save our changes to JSON file
-        with open("Stats.json", "w+") as f:
-                json.dump( data, f, indent= True)
+#get the timestamp
+timestamp = datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M%p")
 
 for domain in domains:
         dbname = domain + 'wikisource_p'
@@ -103,17 +112,8 @@ for domain in domains:
         row = cur.fetchone()
         page_aps = int(row[0])
 
-        updateJson(domain, num_allpages, num_q0, num_q1, num_q2, num_q3 + num_q4, num_q4, num_main_allpages,
-                   main_withscan, main_withoutscan, main_apg, page_aps)
+        updateDatabase(domain, num_allpages, num_q0, num_q1, num_q2, num_q3 + num_q4, num_q4, num_main_allpages,
+                   main_withscan, main_withoutscan, main_apg, page_aps, timestamp)
 
         cur.close ()
         conn.close ()
-
-# timestamp
-with open("Stats.json", "r") as f: # Open the JSON file for reading
-        data = json.load(f)        # Read the JSON into the buffer
-
-data["timestamp"] = datetime.datetime.now().strftime("%A, %d. %B %Y %I:%M%p")
-
-with open("Stats.json", "w") as f:
-        json.dump( data, f, sort_keys=True, indent= True)

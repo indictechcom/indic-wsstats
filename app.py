@@ -3,25 +3,68 @@
 import json
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
-from config import domains
+from config import domains, siteData
+from models import db, LanguageStats
+import datetime
+import yaml, os
 
 __version__ = "2.0"
 
 app = Flask(__name__)
 CORS(app)
 
+# Load configuration from YAML file
+dir = os.path.dirname(__file__)
+app.config.update(yaml.safe_load(open(os.path.join(dir, 'config.yaml'))))
+db.init_app(app)  # initialize db with flask app
+
 @app.route('/')
 def index():
-    with open ("Stats.json","r") as st:
-        data = json.load(st)  # Open the JSON file for reading
+    with app.app_context():
+        all_stats = LanguageStats.query.all()
+        data = {}
+        for stat in all_stats:
+            data[stat.language_code] = {
+                "Num_of_pages": stat.num_of_pages,
+                "Without_text": stat.without_text,
+                "Not_proofread": stat.not_proofread,
+                "Problematic": stat.problematic,
+                "Proofread": stat.proofread,
+                "Validated": stat.validated,
+                "Main_Pages": stat.main_pages,
+                "Main_WithScan": stat.main_with_scan,
+                "Main_WithOutScan": stat.main_with_out_scan,
+            }
+        if all_stats:
+             data['timestamp'] = all_stats[0].timestamp
+        else:
+            data['timestamp'] = "No data"
+        print("data for index:",data)
       
     return render_template('index.html', domains= domains, data= data)
 
 @app.route('/wikitable')
 def wikitable():
-
-    with open ("Stats.json","r") as st:
-        jsonData = json.load(st) # Open the JSON file for reading
+    
+    with app.app_context():
+        all_stats = LanguageStats.query.all()
+        data = {}
+        for stat in all_stats:
+            data[stat.language_code] = {
+                "Num_of_pages":stat.num_of_pages,
+                "Without_text":stat.without_text,
+                "Not_proofread":stat.not_proofread,
+                "Problematic":stat.problematic,
+                "Proofread":stat.proofread,
+                "Validated":stat.validated,
+                "Main_Pages":stat.main_pages,
+                "Main_WithScan":stat.main_with_scan,
+                "Main_WithOutScan":stat.main_with_out_scan,
+            }
+        if all_stats:
+             data['timestamp'] = all_stats[0].timestamp
+        else:
+            data['timestamp'] = "No data"
 
     wikiTable = "Statistics on "+ jsonData[ 'timestamp']
     wikiTable += """
@@ -42,28 +85,17 @@ def wikitable():
 !style="background: #ffa0a0;"|'''Without scans'''
 !style="background: #ffffff;"|'''%'''"""
 
-    jsonData.pop('timestamp', None)
+    data.pop('timestamp', None)
 
     # Sorting
-    jsonData = json.dumps(jsonData, sort_keys=True)
-    jsonData = json.loads( jsonData )
+    data = json.dumps(data, sort_keys=True)
+    data = json.loads( data )
+    print("data for wikitable:",data)
 
     for domain in domains:
 
-        wikiTable += """\n|-
-|%s || %d || %d || %d || %d || %d || %d || %d || %d || %d || %.2f""" % (
-            domain,
-            jsonData[domain]['Num_of_pages'],
-            jsonData[domain]['Without_text'],
-            jsonData[domain]['Not_proofread'],
-            jsonData[domain]['Problematic'],
-            jsonData[domain]['Proofread'],
-            jsonData[domain]['Validated'],
-            jsonData[domain]['Main_Pages'],
-            jsonData[domain]['Main_WithScan'],
-            jsonData[domain]['Main_WithOutScan'],
-            100 * jsonData[domain]["Main_WithScan"] / (jsonData[domain]["Main_WithScan"] + jsonData[domain]["Main_WithOutScan"])
-        )
+        wikiTable += f"""\n|-
+|{domain} || {data[domain]['Num_of_pages']} || {data[domain]['Without_text']} || {data[domain]['Not_proofread']} || {data[domain]['Problematic']} || {data[domain]['Proofread']} || {data[domain]['Validated']} || {data[domain]['Main_Pages']} || {data[domain]['Main_WithScan']} || {data[domain]['Main_WithOutScan']} || {100 * data[domain]["Main_WithScan"] / (data[domain]["Main_WithScan"] + data[domain]["Main_WithOutScan"]):.2f}"""
 
     wikiTable +="\n|}"
     return render_template('wikitable.html', Wikitable= wikiTable)
@@ -71,10 +103,25 @@ def wikitable():
 # API
 @app.route('/api/stats')
 def statsAPI():
-    with open ("Stats.json","r") as st:
-        jsonData = json.load(st)  # Open the JSON file for reading
+    with app.app_context():
+        all_stats = LanguageStats.query.all()
+        data = {}
+        for stat in all_stats:
+            data[stat.language_code] = {
+                "Num_of_pages":stat.num_of_pages,
+                "Without_text":stat.without_text,
+                "Not_proofread":stat.not_proofread,
+                "Problematic":stat.problematic,
+                "Proofread":stat.proofread,
+                "Validated":stat.validated,
+                "Main_Pages":stat.main_pages,
+                "Main_WithScan":stat.main_with_scan,
+                "Main_WithOutScan":stat.main_with_out_scan,
+                "timestamp":stat.timestamp
+            }
+    print("data for api:",data)
 
-    return jsonify( jsonData )
+    return jsonify( data )
 
 
 @app.route('/graph')
@@ -117,5 +164,7 @@ def logs():
         return render_template('logs.html',logExists = True, logs = logList)
 
 if __name__ == '__main__':
+    with app.app_context():
+            db.create_all() 
     app.run()
 
