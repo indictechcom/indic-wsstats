@@ -1,0 +1,2 @@
+SQLALCHEMY_DATABASE_URI: 'mysql+pymysql://username:password@localhost/indic_wsstats1'
+SQLALCHEMY_TRACK_MODIFICATIONS: False
