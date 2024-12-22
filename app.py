@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+from typing import Dict, List, Optional, TypedDict
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 from config import domains, siteData
@@ -8,9 +9,30 @@ from models import db, LanguageStats
 import datetime
 import yaml, os
 
-__version__ = "2.0"
+class StatsData(TypedDict):
+    Num_of_pages: int
+    Without_text: int
+    Not_proofread: int
+    Problematic: int
+    Proofread: int
+    Validated: int
+    Main_Pages: int
+    Main_WithScan: int
+    Main_WithOutScan: int
+    Main_APS: int
+    Page_APS: int
 
-app = Flask(__name__)
+class WikiStats(TypedDict):
+    timestamp: str
+    domains: Dict[str, StatsData]
+
+class UserStats(TypedDict):
+    proofread: str
+    validate: str
+
+__version__: str = "2.0"
+
+app: Flask = Flask(__name__)
 CORS(app)
 
 # Load configuration from YAML file
@@ -19,7 +41,7 @@ app.config.update(yaml.safe_load(open(os.path.join(dir, 'config.yaml'))))
 db.init_app(app)  # initialize db with flask app
 
 @app.route('/')
-def index():
+def index() -> str:
     with app.app_context():
         all_stats = LanguageStats.query.all()
         data = {}
@@ -41,10 +63,10 @@ def index():
             data['timestamp'] = "No data"
         print("data for index:",data)
       
-    return render_template('index.html', domains= domains, data= data)
+    return render_template('index.html', domains=domains, data=data)
 
 @app.route('/wikitable')
-def wikitable():
+def wikitable() -> str:
     
     with app.app_context():
         all_stats = LanguageStats.query.all()
@@ -66,7 +88,8 @@ def wikitable():
         else:
             data['timestamp'] = "No data"
 
-    wikiTable = "Statistics on "+ jsonData[ 'timestamp']
+
+    wikiTable: str = "Statistics on " + data['timestamp']
     wikiTable += """
 {|class="wikitable sortable"
 |-
@@ -87,22 +110,17 @@ def wikitable():
 
     data.pop('timestamp', None)
 
-    # Sorting
-    data = json.dumps(data, sort_keys=True)
-    data = json.loads( data )
-    print("data for wikitable:",data)
-
     for domain in domains:
 
         wikiTable += f"""\n|-
 |{domain} || {data[domain]['Num_of_pages']} || {data[domain]['Without_text']} || {data[domain]['Not_proofread']} || {data[domain]['Problematic']} || {data[domain]['Proofread']} || {data[domain]['Validated']} || {data[domain]['Main_Pages']} || {data[domain]['Main_WithScan']} || {data[domain]['Main_WithOutScan']} || {100 * data[domain]["Main_WithScan"] / (data[domain]["Main_WithScan"] + data[domain]["Main_WithOutScan"]):.2f}"""
 
-    wikiTable +="\n|}"
-    return render_template('wikitable.html', Wikitable= wikiTable)
+    wikiTable += "\n|}"
+    return render_template('wikitable.html', Wikitable=wikiTable)
 
 # API
 @app.route('/api/stats')
-def statsAPI():
+def statsAPI() -> WikiStats:
     with app.app_context():
         all_stats = LanguageStats.query.all()
         data = {}
@@ -123,45 +141,44 @@ def statsAPI():
 
     return jsonify( data )
 
-
 @app.route('/graph')
-def graph():
+def graph() -> str:
     return render_template('graph.html')
 
 @app.route('/activeuser')
-def activeuser():
-    wsProject = request.args.get('project', None)
-    wsMonth = request.args.get('month', None)
-    data = None
-    fileExists = True
-    total = {
+def activeuser() -> str:
+    wsProject: Optional[str] = request.args.get('project', None)
+    wsMonth: Optional[str] = request.args.get('month', None)
+    data: Optional[Dict[str, UserStats]] = None
+    fileExists: bool = True
+    total: Dict[str, int] = {
         "proofread": 0,
         "validate": 0
     }
+    
     if wsMonth is not None:
         try:
-            jsonFile = open("ActiveUserStats/" + wsMonth + ".json", "r")
-            data = json.load( jsonFile )
-            jsonFile.close()
+            with open("ActiveUserStats/" + wsMonth + ".json", "r") as jsonFile:
+                data = json.load(jsonFile)
             data = data[wsProject]
 
             # Count the total
             for count in data.values():
                 total["proofread"] = total["proofread"] + int(count["proofread"])
                 total["validate"] = total["validate"] + int(count["validate"])
-            return render_template('activeuser.html', data= data, project=wsProject, total=total, fileExists=True)
+            return render_template('activeuser.html', data=data, project=wsProject, total=total, fileExists=True)
         except FileNotFoundError:
-            return render_template('activeuser.html', data= "invalid", project=wsProject, total=total, fileExists=False)
-    return render_template('activeuser.html', data= data, project=wsProject, total=total, fileExists=True)
+            return render_template('activeuser.html', data="invalid", project=wsProject, total=total, fileExists=False)
+    return render_template('activeuser.html', data=data, project=wsProject, total=total, fileExists=True)
 
 @app.route('/logs')
-def logs():
+def logs() -> str:
     with open("jobs.log", "r") as f:
-        logList = f.readlines()
-    if logList == []:
-        return render_template('logs.html', logExists = False, logs = [])
+        logList: List[str] = f.readlines()
+    if not logList:
+        return render_template('logs.html', logExists=False, logs=[])
     else:
-        return render_template('logs.html',logExists = True, logs = logList)
+        return render_template('logs.html', logExists=True, logs=logList)
 
 if __name__ == '__main__':
     with app.app_context():

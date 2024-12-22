@@ -1,6 +1,22 @@
 # -*- coding: utf-8 -*-
+from typing import List, Dict, TypedDict
 
-domains = [
+class NamespaceConfig(TypedDict):
+    page: int
+    index: int
+
+class CategoryConfig(TypedDict):
+    Without_text: str
+    Not_proofread: str
+    Problematic: str
+    Proofread: str
+    Validated: str
+
+class SiteConfig(TypedDict):
+    namespace: NamespaceConfig
+    category: CategoryConfig
+
+domains: List[str] = [
     'as',
     'bn',
     'gu',
@@ -15,7 +31,7 @@ domains = [
     'te'
 ]
 
-siteData= {
+siteData: Dict[str, SiteConfig] = {
     "as": {
         "namespace": {
                 "page": 104,
